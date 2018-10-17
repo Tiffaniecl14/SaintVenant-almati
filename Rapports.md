@@ -7,11 +7,14 @@ Mise en place du groupe de 3 personnes
 Debut des recherches pour repondre à la premiere partie
 Debut de redaction de la premiere partie en Latex, pour l'instant fait sur overleaf
 ## Mardi 9/10/2018
-Question 2 terminée.
+Question 2 : terminée.
 Question 3 commencée : méthode des volumes finis (cas général et 1D), mécanique des fluides numériques.
 Question 4 : on sait comment avancer (discrétiser le problème en 1D).
 Nous avons également continué à rédiger le rapport LaTeX (Compte-rendu TP3).
-## Mardi 17/10/2018
+## Mardi 16/10/2018
+Question 3 : terminée.
+Question 4 commencée : on a défini le schéma des volumes finis par la méthode d'Euler pour notre équation.
+Nous avons également continué à rédiger le rapport LaTeX (Compte-rendu TP4).
 ## Mardi 14/11/2018
 ## Mardi 21/11/2018
 ## Mardi 28/12/2018
