@@ -54,12 +54,16 @@ while t[i]<Tmax :
     
 [T,X]=meshgrid(t,x)
 
-fig = plt.figure(1)
+fig = plt.figure("Approximation de la solution")
+my_col = cm.jet(u/np.amax(u))
 ax = plt.axes(projection='3d')
-ax.plot_surface(X,T,u,rstride=1,cstride=1,cmap='viridis', edgecolor='none')
-fig2 = plt.figure(2)
+ax.plot_surface(X,T,u,rstride=1,cstride=1,facecolors = my_col,linewidth=0, antialiased=False)
+title("Approximation de la solution")
+
+fig2 = plt.figure("Solution exacte")
 ax2 = plt.axes(projection='3d')
-ax2.plot_surface(X,T,u_exacte,rstride=2,cstride=2,cmap='viridis', edgecolor='none')
+ax2.plot_surface(X,T,u_exacte,rstride=1,cstride=1,cmap='viridis', edgecolor='none')
+title("Solution exacte")
 show()
     
     
