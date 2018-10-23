@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 from pylab import *
 import initiale
-#initiale fichier ou on va chercher la condition initiale
+#initiale fichier ou on va chercher la condition initiale definissant le probleme
+
 #resolution 1D de l'equation de transport
 #schema decentré en amont
+#le schéma est adapté au cas ou la valeur du champ vitesse est positive
 c=input("Donner la valeur du champ vitesse : ")
 c=int(c)
 #N nombre de mailles
-N=input("Chiosir le nombre de mailles désirés : ")
+N=input("Choisir le nombre de mailles désirés : ")
 N=int(N)
 #h le pas d'espace
 h=1./N

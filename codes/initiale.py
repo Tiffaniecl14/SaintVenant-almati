@@ -9,3 +9,7 @@ from pylab import *
 def i1(x):
     y=cos(2*pi*x)
     return y
+
+def i2(x):
+    y=-(2/pi)*arctan(100*(x-0.5))
+    return y
