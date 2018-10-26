@@ -33,10 +33,10 @@ t=zeros(int(Tmax/dt)+2)
 #on doit initialiser la variable au temps t=0
 u=zeros([N+1,int(Tmax/dt)+2])
 u_exacte=zeros([N+1,int(Tmax/dt)+2])
-#valeur de u au temps 0
-u[:,0]=initiale.i2(x)
+#valeur de u au temps 0 donné dans le probleme u(x,0)=u0(x)
+u[:,0]=initiale.i1(x)
 #valeur exacte au temps t =0
-u_exacte[:,0]=initiale.i2(x)
+u_exacte[:,0]=initiale.i1(x)
 #on initialise la valeur initiale du pas de temps
 t[0]=0
 i=0
@@ -50,7 +50,7 @@ while t[i]<Tmax :
     t[i]=t[i-1]+dt
     xi=x-c*t[i]
     #u_exacte=initiale(xi) #u(x,t)=u_0(x-t)
-    u_exacte[:,i]=initiale.i2(xi)
+    u_exacte[:,i]=initiale.i1(xi)
     
 [T,X]=meshgrid(t,x)
 
@@ -64,6 +64,7 @@ fig2 = plt.figure("Solution exacte")
 ax2 = plt.axes(projection='3d')
 ax2.plot_surface(X,T,u_exacte,rstride=1,cstride=1,cmap='viridis', edgecolor='none')
 title("Solution exacte")
+
 show()
     
     
