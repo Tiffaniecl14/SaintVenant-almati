@@ -15,6 +15,8 @@ Nous avons également continué à rédiger le rapport LaTeX (Compte-rendu TP3).
 Question 3 : terminée.
 Question 4 commencée : on a défini le schéma des volumes finis par la méthode d'Euler pour notre équation.
 Nous avons également continué à rédiger le rapport LaTeX (Compte-rendu TP4).
-## Mardi 14/11/2018
+## Mardi 06/11/2018
+Partie code : correction et fin pour le cas 1D, calcul de l'erreur maximale, graphes en 2D et 3D.  
+MAJ du CR.
 ## Mardi 21/11/2018
 ## Mardi 28/12/2018

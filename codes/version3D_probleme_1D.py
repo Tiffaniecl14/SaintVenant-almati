@@ -11,46 +11,68 @@ import initiale
 
 #resolution 1D de l'equation de transport
 ##Affichage du resultat en 3d
-#schema decentré en amont
-#Ici le schema est particulierement adaptéau cas c positif
+#schema decentré en amont pour c positif et schema decentre en aval pour c négatif
+
 c=input("Donner la valeur du champ vitesse : ")
 c=int(c)
+
 #N nombre de mailles
-N=input("Chiosir le nombre de mailles désirés : ")
+N=input("Chiosir le nombre de mailles désires : ")
 N=int(N)
+
 #h le pas d'espace
 h=1./N
 x=arange(0,1+h,h) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
-#pas de temps
+
 #on doit choisir le pas de temps de maniere a ce que la condition de cfl soit au plus egale à 1
 cfl=input("Choix de la condition de cfl : ")
 cfl=float(cfl)
+
 #dt le pas de temps
 dt=cfl*h 
-Tmax=0.1 #temps d'integration maximal
+Tmax=0.1 #temps  maximal
 #Plus Tmax est petit plus l'approximation est bonne
-t=zeros(int(Tmax/dt)+2)
+nt=(Tmax/dt)+1
+nt=int(nt)
+t=zeros(nt+1)
+
 #on doit initialiser la variable au temps t=0
-u=zeros([N+1,int(Tmax/dt)+2])
-u_exacte=zeros([N+1,int(Tmax/dt)+2])
+u=zeros([len(x),nt+1])
+u_exacte=zeros([len(x),nt+1])
+
 #valeur de u au temps 0 donné dans le probleme u(x,0)=u0(x)
-u[:,0]=initiale.i1(x)
+u[:,0]=initiale.i2(x)
+
 #valeur exacte au temps t =0
-u_exacte[:,0]=initiale.i1(x)
+u_exacte[:,0]=initiale.i2(x)
+
 #on initialise la valeur initiale du pas de temps
 t[0]=0
 i=0
 while t[i]<Tmax :
-    #on doit apporter une condition sur u(O,t) pour tous temps t
-    u[0,:]=initiale.i2(0)
-    #calcul de l'approximation à l'aide du schéma choisi
-    for j in arange(1,N+1):
-        u[j,i+1]=u[j,i]-c*(dt/h)*(u[j,i]-u[j-1,i])
-    i=i+1
-    t[i]=t[i-1]+dt
-    xi=x-c*t[i]
-    #u_exacte=initiale(xi) #u(x,t)=u_0(x-t)
-    u_exacte[:,i]=initiale.i1(xi)
+    if c>0:
+        #on doit apporter une condition sur u(O,t) pour tous temps t
+        u[0,:]=initiale.i2(0)
+        #calcul de l'approximation à l'aide du schéma choisi
+        for j in arange(1,len(x)):
+            u[j,i+1]=u[j,i]-c*(dt/h)*(u[j,i]-u[j-1,i])
+        i=i+1
+        t[i]=t[i-1]+dt
+        xi=x-c*t[i]
+        #u_exacte=initiale(xi) #u(x,t)=u_0(x-t)
+        u_exacte[:,i]=initiale.i2(xi)
+        
+    if c<0:
+        #on doit apporter une condition sur u(O,t) pour tous temps t
+        u[-1,:]=initiale.i2(x[-1]-c*t[i])
+        #calcul de l'approximation à l'aide du schéma choisi
+        for j in arange(0,len(x)-1):
+            u[j,i+1]=u[j,i]-c*(dt/h)*(u[j+1,i]-u[j,i])
+        t[i+1]=t[i]+dt
+        i=i+1
+        xi=x-c*t[i]
+        #u_exacte=initiale(xi) #u(x,t)=u_0(x-t)
+        u_exacte[:,i]=initiale.i2(xi)   
     
 [T,X]=meshgrid(t,x)
 
