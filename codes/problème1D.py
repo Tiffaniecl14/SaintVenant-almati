@@ -1,4 +1,3 @@
-## Tiffanie Carlier
 # -*- coding: utf-8 -*-
 from pylab import *
 import initiale
@@ -53,12 +52,12 @@ while t<Tmax :
     u_exacte=f(x-c*t)
     
     #Calcul de l'erreur
-    erreur=norm(u_exacte-uN,2)
+    erreur=norm(u_exacte-u,2)
     if erreur>erreur_max :
         erreur_max=erreur
         
     if niter%10==0:
-        ax.plot(x,uN,'-r')
+        ax.plot(x,u,'-r')
         ax.plot(x,u_exacte,':b')
 show()
 
@@ -66,7 +65,7 @@ print("Erreur maximale pour la resolution du probleme : %f"%erreur_max)
 #Comparaison des courbes aux derniers temps 
 fig2,ax2 = subplots(1,1)
 ax2.set_title("Comparaison des solutions au temps Tmax")
-ax2.plot(x,uN,'-r',label="solution calculee")
+ax2.plot(x,u,'-r',label="solution calculee")
 ax2.plot(x,u_exacte,':b',label="solution exacte")
 #trouver la possiblité d'afficher pour une certaine valeur de t
 legend()

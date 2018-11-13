@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-
+#module des differents schema possible pour la resolution de l'equation de transport
 from pylab import *
 
 #schema decentre
