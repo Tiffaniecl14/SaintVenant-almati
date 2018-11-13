@@ -2,18 +2,22 @@
 # -*- coding: utf-8 -*-
 from pylab import *
 import initiale
+import schema
 #initiale fichier ou on va chercher la condition initiale definissant le probleme
-
 close('all')
 
 #resolution 1D de l'equation de transport
 #schema decentré en amont pour c positif et schema decentre en aval pour c négatif
 c=input("Donner une valeur non nulle pour le champ vitesse : ")
-c=int(c)
+c=float(c)
 
 #N nombre de mailles
 N=input("Choisir le nombre de mailles désires : ")
 N=int(N)
+#Choix de la condition initiale
+f=initiale.i1
+#Choix du schema 
+s=schema.s1
 
 #h le pas d'espace
 h=1./N
@@ -22,8 +26,7 @@ u=zeros((N+1))
 uN=zeros((N+1))
 erreur_max=0
 #on doit choisir le pas de temps de maniere a ce que la condition de cfl soit au plus egale à 1
-cfl=input("Choix de la condition de cfl entre o et 1 pour la convergeance du schema : ")
-cfl=float(cfl)
+cfl=0.002
 
 # dt pas de temps
 dt=cfl*h
@@ -32,7 +35,7 @@ Tmax=0.1 #temps maximal
 #Plus Tmax est grand plus l'approximation est bonne
 
 #on doit initialiser la variable au temps t=0
-u=initiale.i2(x)
+u=f(x)
 
 #compteur pour l'affichage du resultat
 niter=0
@@ -42,19 +45,14 @@ t=0
 fig,ax = subplots(1,1)
 ax.set_title("Resultat de l'approximation aux differents temps consideres")
 while t<Tmax :
-    if c>0:
-        uN[0]=initiale.i2(x[0]-c*t) 
-        uN[1:]=u[1:]-c*(dt/h)*(u[1:]-u[0:-1])
-    if c<0:
-        uN[-1]=initiale.i2(x[-1]-c*t)
-        uN[:-1]=u[:-1]-c*(dt/h)*(u[1:]-u[:-1])
-    u=uN    
+    u=s(c,f,x,t,u,uN,dt,h)    
     t=t+dt
     niter=niter+1
 
     #u_exacte=initiale(xi) #u(x,t)=u_0(x-t)
-    u_exacte=initiale.i2(x-c*t)
+    u_exacte=f(x-c*t)
     
+    #Calcul de l'erreur
     erreur=norm(u_exacte-uN,2)
     if erreur>erreur_max :
         erreur_max=erreur

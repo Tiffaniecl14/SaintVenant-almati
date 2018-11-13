@@ -13,4 +13,8 @@ def i1(x):
 def i2(x):
     y=-(2/pi)*arctan(100*(x-0.5))
     return y
+    
+def i3(x):
+    return 1.*(x<0.2)
+    
 
