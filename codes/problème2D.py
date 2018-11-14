@@ -28,8 +28,8 @@ h=1./N
 x=arange(0,1+dx,dx) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
 y=arange(0,1+dy,dy) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
 
-u=zeros((N+1,N+1))
-uN=zeros((N+1,N+1))
+u=zeros((len(x),len(y)))
+uN=zeros((len(x),len(y)))
 erreur_max=0
 #on doit choisir le pas de temps de maniere a ce que la condition de cfl soit au plus egale à 1
 #on peut la changer mais par exemple içi on l'impose de cette facon
@@ -42,7 +42,10 @@ Tmax=0.1 #temps maximal
 #Plus Tmax est grand plus l'approximation est bonne
 
 #on doit initialiser la variable au temps t=0
-u=f(x,y)
+for i in arange(0,len(x))
+    for j in arange(0,len(y))
+        u=f(x[i],y[j])
+        
 
 #compteur pour l'affichage du resultat
 niter=0
@@ -50,7 +53,7 @@ niter=0
 #on initialise la valeur initiale du pas de temps
 t=0
 while t<Tmax :
-    u_cal=s(cx,cy,f,x,y,t,u,uN,dt,dx,dy)    
+    u=s(cx,cy,f,x,y,t,u,uN,dt,dx,dy)
     t=t+dt
     niter=niter+1
 
@@ -58,7 +61,7 @@ while t<Tmax :
 fig = plt.figure("Approximation de la solution")
 my_col = cm.jet(u/np.amax(u))
 ax = plt.axes(projection='3d')
-ax.plot_surface(X,Y,u_cal,rstride=1,cstride=1,facecolors = my_col,linewidth=0, antialiased=False)
+ax.plot_surface(X,Y,u,rstride=1,cstride=1,facecolors = my_col,linewidth=0, antialiased=False)
 title("Approximation de la solution")
 show()
 
