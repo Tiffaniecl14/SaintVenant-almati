@@ -5,3 +5,6 @@ from pylab import *
 def i1(x,y):
     res=sin(2*pi*x)*sin(2*y*pi)
     return res
+def iexact1(x,y,t,cx,cy):
+    res=sin(2*pi*(x-cx*t))*sin(2*pi*(y-cy*t))
+    return res
