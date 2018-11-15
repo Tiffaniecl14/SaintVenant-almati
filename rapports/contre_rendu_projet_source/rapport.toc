@@ -1,0 +1,34 @@
+\babel@toc {french}{}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Notations}{2}
+\contentsline {section}{\numberline {3}Recherche de ressources, documentation}{2}
+\contentsline {subsection}{\numberline {3.1}L'\IeC {\'e}quation de transport}{2}
+\contentsline {subsection}{\numberline {3.2}R\IeC {\'e}solution du probl\IeC {\`e}me 1D}{3}
+\contentsline {subsubsection}{\numberline {3.2.1}R\IeC {\'e}solution par la m\IeC {\'e}thode des caract\IeC {\'e}ristiques}{3}
+\contentsline {subsubsection}{\numberline {3.2.2}Application}{5}
+\contentsline {subsection}{\numberline {3.3}M\IeC {\'e}thodes des volumes finis}{5}
+\contentsline {subsubsection}{\numberline {3.3.1}Notion de maillage et de discr\IeC {\'e}tisation}{5}
+\contentsline {subsubsection}{\numberline {3.3.2}Volumes finis en dimension quelconque}{5}
+\contentsline {subsubsection}{\numberline {3.3.3}M\IeC {\'e}thode des volumes finis cas 1D }{6}
+\contentsline {paragraph}{M\IeC {\'e}thode g\IeC {\'e}n\IeC {\'e}rale :}{6}
+\contentsline {subsubsection}{\numberline {3.3.4}Exemples de sch\IeC {\'e}mas num\IeC {\'e}riques dans le cas 1D}{7}
+\contentsline {subsection}{\numberline {3.4}Flux num\IeC {\'e}rique}{9}
+\contentsline {subsubsection}{\numberline {3.4.1}La m\IeC {\'e}canique des fluides}{9}
+\contentsline {subsubsection}{\numberline {3.4.2}Exemple de flux num\IeC {\'e}rique}{9}
+\contentsline {subsubsection}{\numberline {3.4.3}Sch\IeC {\'e}ma num\IeC {\'e}rique g\IeC {\'e}n\IeC {\'e}ral}{10}
+\contentsline {subsection}{\numberline {3.5}Contraintes sur la m\IeC {\'e}thode}{10}
+\contentsline {subsubsection}{\numberline {3.5.1}Condition de CFL et pas de temp}{10}
+\contentsline {subsubsection}{\numberline {3.5.2}M\IeC {\'e}thode avec r\IeC {\'e}solution de syst\IeC {\`e}me lin\IeC {\'e}aire}{11}
+\contentsline {subsubsection}{\numberline {3.5.3}M\IeC {\'e}thode de stabilisation d'un sch\IeC {\'e}ma instable}{12}
+\contentsline {subsubsection}{\numberline {3.5.4}Syst\IeC {\`e}me d'\IeC {\'e}quation de transport}{12}
+\contentsline {section}{\numberline {4}Programmation dans un cas simplifi\IeC {\'e}}{13}
+\contentsline {subsection}{\numberline {4.1}Explication de l'impl\IeC {\'e}mentation de la m\IeC {\'e}thode}{13}
+\contentsline {subsection}{\numberline {4.2}Exemples concrets de solutions exactes}{13}
+\contentsline {subsection}{\numberline {4.3}Tests de validation}{13}
+\contentsline {section}{\numberline {5}Le cas g\IeC {\'e}n\IeC {\'e}ral}{13}
+\contentsline {subsection}{\numberline {5.1}G\IeC {\'e}n\IeC {\'e}ralisation \IeC {\`a} la dimension 2}{13}
+\contentsline {subsection}{\numberline {5.2}Application \IeC {\`a} un exemple}{14}
+\contentsline {subsection}{\numberline {5.3}R\IeC {\'e}solution du probl\IeC {\`e}me de rupture de barrage des \IeC {\'e}quations de Saint Venant}{15}
+\contentsline {subsubsection}{\numberline {5.3.1}Les \IeC {\'e}quations de Saint-Venant}{15}
+\contentsline {subsubsection}{\numberline {5.3.2}R\IeC {\'e}solution du syst\IeC {\'e}me d'\IeC {\'e}quation de Saint Venant}{15}
+\contentsline {section}{\numberline {6}Bibliographie}{15}
