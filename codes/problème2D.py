@@ -37,7 +37,7 @@ cfl=0.002
 # dt pas de temps
 dt=cfl*h
 
-Tmax=0.1 #temps maximal
+Tmax=0.2 #temps maximal
 #Plus Tmax est grand plus l'approximation est bonne
 
 #on doit initialiser la variable au temps t=0
@@ -62,7 +62,8 @@ while t<Tmax :
     for j in arange (0,len(y)):
         u[0,j]=init2D.iexact1(0,y[j],t,cx,cy)
         u[len(x)-1,j]=copy.deepcopy(u[i,0])
-
+    
+    
 
 [X,Y]=meshgrid(x,y)
 fig = plt.figure("Approximation de la solution")

@@ -25,7 +25,7 @@ u=zeros((N+1))
 uN=zeros((N+1))
 erreur_max=0
 #on doit choisir le pas de temps de maniere a ce que la condition de cfl soit au plus egale à 1
-cfl=0.002
+cfl=0.05
 
 # dt pas de temps
 dt=cfl*h
