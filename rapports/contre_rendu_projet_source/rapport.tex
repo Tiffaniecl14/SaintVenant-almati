@@ -15,7 +15,6 @@
 \usepackage{pifont}
 \usepackage{array}
 \usepackage{color}
-%\usepackage{mathbb}
 \addto\captionsfrench{\def\tablename{TABLEAU}}
 \geometry{hmargin=2cm,vmargin=2cm}
 
@@ -66,7 +65,7 @@ Encadrant\\
 
 \noindent où $c$ est le champ de vecteur vitesse avec $div(c)=0$. 
 \\
-\\La méthode des volumes finis est la plus adaptée à ce type d'équation. Notre objectif est donc de résoudre une rupture de barrage pour les équations de Saint-Venant en utilisant la méthode des volumes finis.
+\\La méthode des volumes finis est la plus adaptée à ce type d'équation. Notre objectif est donc de résoudre une rupture de barrage pour les équations de Saint-Venant \cite{ref1} en utilisant la méthode des volumes finis.
 
 
 \section{Notations}
@@ -152,7 +151,7 @@ Dans le cas 1D avec un champ de vitesse constant $c$ le problème s'écrit sous 
     \right .
 \end{eqnarray*}
 \\
-Une des méthodes pour résoudre ce type d'équation est la méthode des caractéristiques. On définit les caractéristiques comme les courbes de $\mathbb{R}^2$ définies par $(t,X(t))$ où $X(t)$ est la solution de l'équation différentielle ordinaire $\partial_tX(t)=c$.
+Une des méthodes pour résoudre ce type d'équation est la méthode des caractéristiques \cite{ref10}. On définit les caractéristiques comme les courbes de $\mathbb{R}^2$ définies par $(t,X(t))$ où $X(t)$ est la solution de l'équation différentielle ordinaire $\partial_tX(t)=c$.
 On a alors que $(t,X(t))$ vérifie :
 \\
 \begin{center}
@@ -219,9 +218,9 @@ Les éléments de la suite $(K_i)_{1\leq{i}\leq{I}}$ sont appelés volumes de co
 	\caption{Exemple d'un ensemble d'espace $\Omega$ divisé en espaces de contrôle $K_i$}
 	\label{Ki}
 	\end{figure}
-
+\newpage
 \subsubsection{Volumes finis en dimension quelconque}
-\noindent En considérant un maillage défini comme précédemment, le principe des volumes finis est l'intégration de l'équation aux dérivées partielles donc dans notre cas l'équation de transport sur tous les volumes de contrôle. 
+\noindent En considérant un maillage défini comme précédemment, le principe des volumes finis \cite{ref7} est l'intégration de l'équation aux dérivées partielles donc dans notre cas l'équation de transport sur tous les volumes de contrôle. 
 La formule de la divergence nous permet de simplifier le problème qui nous dit :
 \\
 \begin{center}
@@ -250,15 +249,14 @@ La Figure ci-dessous représente un maillage en 1 dimension. Ici, l'espace $\Ome
 	\caption{Maillage en 1 dimension}
 	\label{1D}
 	\end{figure}
-
-\noindent Pour calculer numériquement la solution du problème 1D on introduit une grille qui est cette fois en x et en t.
 \newpage
+\noindent Pour calculer numériquement la solution du problème 1D on introduit une grille qui est cette fois en x et en t.
 \noindent On introduit les notations suivantes :
 \\
  $x_i=i\Delta x, \Delta x$ le pas de la discrétisation en espace
 \\
-$_ tn=n\Delta t, \Delta t$ le pas de la discrétisation en temps
-\\De plus on note $u_i^n$ une approximation de $u(x_i,tn)$
+$ t^n=n\Delta t, \Delta t$ le pas de la discrétisation en temps
+\\De plus on note $u_i^n$ une approximation de $u(x_i,t^n)$
  \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{DFGrille.PNG}
@@ -289,28 +287,30 @@ La méthode d'Euler pour un schéma explicite consiste à associer à une équat
 
 \begin{center}
         $u^{n+1}_i=u_i^n + \displaystyle c \, \frac{\Delta t}{\Delta x}(u_{i+\frac{1}{2}}^n-u_{i-\frac{1}{2}}^n)$
-        \\
+        \leavevmode\\
+        \leavevmode\\
         $u^{n+1}_i=u_i^n +  \displaystyle c \, \frac{\Delta t}{\Delta x}\left(\frac{u_{i+1}^n-u_{i-1}^n}{2}\right)$
 \end{center}
 
 \noindent où $u_{i+\frac{1}{2}} = \displaystyle\frac{u_i+u_{i+1}}{2}$ \: et \: $u_{i-\frac{1}{2}} = \displaystyle\frac{u_{i-1}-u_{i}}{2}$.
 \\
 \\
-\noindent Il s'agit ici du schéma centré de Richardson. Malheureusement, ce schéma est instable car il ne prend pas en compte l'information sur le signe du champ de vecteur vitesse $c$. Pour le rendre stable, il faudrait apporter de la diffusion numérique.
-D'autres schéma existent, quelques uns sont listés ci-dessous.
+Il s'agit ici du schéma centré de Richardson. Malheureusement, ce schéma est instable car il ne prend pas en compte l'information sur le signe du champ de vecteur vitesse $c$. Pour le rendre stable, il faudrait apporter de la diffusion numérique.
+D'autres schémas existent, quelques uns sont listés ci-dessous \cite{ref11}.
 \\
 \\- Les schémas décentrés (upwind)
 \begin{eqnarray*}
         u^{n+1}_i=u_i^n-\frac{c\Delta t}{\Delta x}({u_{i}^n-u_{i-1}^n}) \text{       , si c>0}
-        \iff u^{n+1}_i=u_i^n(1-\frac{c\Delta t}{\Delta x})+u_{i-1}^n(\frac{c\Delta t}{\Delta x})	
+        \iff u^{n+1}_i=u_i^n\left(1-\frac{c\Delta t}{\Delta x}\right)+u_{i-1}^n\left(\frac{c\Delta t}{\Delta x}\right)	
         \\
         \\
         u^{n+1}_i=u_i^n-\frac{c\Delta t}{\Delta x}({u_{i+1}^n-u_{i}^n}) \text{       , si c<0}
-        \iff u^{n+1}_i=u_i^n(1+\frac{c\Delta t}{\Delta x})-u_{i+1}^n(\frac{c\Delta t}{\Delta x})
+        \iff u^{n+1}_i=u_i^n\left(1+\frac{c\Delta t}{\Delta x}\right)-u_{i+1}^n\left(\frac{c\Delta t}{\Delta x}\right)
 \end{eqnarray*}
 
 \noindent Il s'agit ici d'un schéma décentré permettant de prendre l'information du bon côté suivant la direction de la caractéristique donné par le signe du champ vitesse $c$ i.e que le décentrement tient compte de la direction de la propagation.
-\\On constatera par la suite qu'il s'agit du meilleur schéma dans le cas 1D tel que la convergence est assuré peu importe la valeur du vecteur c. Il est tout de même important de préciser que la condition de cfl inférieur à un est toujours une obligation.
+\\On constatera par la suite qu'il s'agit du meilleur schéma dans le cas 1D tel que la convergence soit assurée peu importe la valeur du vecteur c. Il est tout de même important de préciser que la condition de CFL inférieure ou égale à 1 est toujours une obligation.
+L'ordre global avec ce schéma est en $O(\delta t + \delta x)$.
 \\
 \\- Le schéma de Lax-Wendroff :
 \\
@@ -318,6 +318,7 @@ D'autres schéma existent, quelques uns sont listés ci-dessous.
         u^{n+1}_i=u_i^n-\frac{c\Delta t}{\Delta x}({u_{i+1}^n-u_{i-1}^n}) +\frac{c^2\Delta t^2}{\Delta x^2}(u_{i+1}^n-2u_{i}^n+u^{n}_{i-1})
 \end{eqnarray*}
 \\
+La condition de CFL 
 \\- Le schéma Euler explicite en aval :
 \\
 \begin{eqnarray*}
@@ -355,7 +356,9 @@ La méthode des volumes finis est complètement déterminée par son flux numér
 En appliquant la méthode des volumes finis à cette équation on obtient le schéma suivant :
 \begin{eqnarray*}
         -u'(x_{i+\frac{1}{2}})+u'(x_{i-\frac{1}{2}})=h_if_i
-        \\\Leftrightarrow F_{i+\frac{1}{2}} -F_{i-\frac{1}{2}} = h_if_i
+        \\
+        \\
+        \Leftrightarrow F_{i+\frac{1}{2}} -F_{i-\frac{1}{2}} = h_if_i
 \end{eqnarray*}
 $F_{i+\frac{1}{2}}$ est appelé le flux numérique en $x_{i+\frac{1}{2}}$.
 \\
@@ -396,7 +399,7 @@ le flux à travers l'arête $e_{i,j}$ est approché par
 \noindent On utilise donc l'information venant des espaces de contrôle $K_i$ ou $K_j$ en fonction de la direction du champ de vitesse $c$.
 
 \subsubsection{Schéma numérique général}
-\noindent En appliquant le schéma d'Euler à l'équation (2), on obtient un schéma dans le cas général donné par :
+\noindent En appliquant le schéma d'Euler \cite{ref6} à l'équation (2), on obtient un schéma dans le cas général donné par :
 \begin{center}
        $\displaystyle \frac{d u_i}{dt}=-\frac{1}{mes(K_i)} \displaystyle\sum_{e_{i,j} \in \partial K_i} mes(e_{i,j})\Phi(u_i,u_j,n_{i,j})$
        \\
@@ -404,7 +407,7 @@ le flux à travers l'arête $e_{i,j}$ est approché par
 \end{center}
  
  \subsection{Contraintes sur la méthode}
- \subsubsection{Condition de CFL et pas de temp}
+ \subsubsection{Condition de CFL et pas de temps}
 \noindent Dans le cas 1D, pour écrire un schéma pertinent il faut que le pas de temps $\Delta t$ soit suffisamment petit pour que le pied de la caractéristique rentre dans le support du schéma, c'est une condition géométrique nécessaire à sa stabilité.
  \\Cela revient à dire que l'on cherche à avoir $\Delta t$ tel que le cône de dépendance théorique soit inclus dans le cône de dépendance numérique.
  
@@ -416,7 +419,7 @@ le flux à travers l'arête $e_{i,j}$ est approché par
 	\end{figure}
 	
 \noindent Numériquement et peu importe la dimension du problème, cette condition est équivalente à la condition de CFL \cite{ref9} (coefficient de Courant, Fredrichs, Lewy).
-Le schéma est stable si ce coefficient est inférieur à 1 et produira une solution cohérente. 
+Le schéma est stable si ce coefficient est inférieur ou égal à 1 et produira une solution cohérente. 
 La condition de CFL impose au coefficient d'amplification d'être plus petit que $1$.
 \\Par exemple sur les schémas à un pas, un schéma numérique est déterminé par la formule suivante :
 
@@ -432,7 +435,7 @@ La condition de CFL impose au coefficient d'amplification d'être plus petit que
 \\
 On peut déterminer par exemple le pas de temps avec la formule suivante :
 $\Delta t = \Delta x \times CFL$
-\\ou on fixe au préalable $CFL<1$ et un pas d'espace $\Delta x$.
+\\ou on fixe au préalable $CFL < 1$ et un pas d'espace $\Delta x$.
 \\On peut parfois se placer à la condition de stabilité où le coefficient de $CFL$ vaut 1.
 \\
 \subsubsection{Méthode avec résolution de système linéaire}\noindent En fonction du type de schéma considéré pour l'approximation de l'équation,  c'est-à-dire si un schéma est implicite ou explicite on peut avoir besoin de résoudre un système linéaire. C'est dans le cas où le schéma est implicite c'est-à-dire lorsqu'au $n+1^{ième}$ pas de temps, il existe plusieurs pas d'espace pour ce même pas de temps, qu'il sera alors nécessaire de résoudre un système linéaire.
@@ -444,7 +447,7 @@ Un résultat possible est alors le schéma suivant :
 \begin{eqnarray*}
          u_k^{n+1} +\frac{c\Delta t}{\Delta x}u_k^{n+1}-\frac{c\Delta t}{\Delta x}u_{k-1}^{n+1}=u_k^n
 \end{eqnarray*}
-\\Matriciellement cela vient à résoudre le système :
+\\Matriciellement celà vient à résoudre le système :
 \begin{eqnarray*}
         \begin{pmatrix}
    1 & 0 & .. & .. &.. & 0 \\
@@ -482,26 +485,35 @@ On parle alors de résolution implicite.
 Le coefficient d’amplification de ce schéma est $M(\xi) = 1 - ic\,\displaystyle \frac{\delta t}{\delta x} sin(\xi \delta x)$.
 \\D'où $|M(\xi)|^2 = 1 + \mid c\displaystyle\frac{\delta t}{\delta x} sin(\xi \delta x)\mid^2$ > 1. Donc toujours instable.\\\\
 Pour le rendre stable, il faut ajouter de la diffusion numérique. Nous pouvons réécrire le schéma décentré comme suit :
-\begin{eqnarray}
-	\frac{u_k^{n+1} - u_k^n}{\delta t} + c\frac{u_{k+1}^n - u_{k-1}^n}{2\delta x}-c \frac{\delta x }{2}(\frac{u_{k+1}^n - 2u_{k}^n + u_{k+1}^n}{\delta x^2}) = 0 \text{ si c>0}
-	\\\frac{u_k^{n+1} - u_k^n}{\delta t} + c\frac{u_{k+1}^n - u_{k-1}^n}{2\delta x}+c\frac{\delta x }{2}(\frac{u_{k+1}^n - 2u_k^n + u_{k+1}^n}{\delta x^2}) = 0 \text{ si c<0}
-\end{eqnarray}
+\begin{eqnarray*}
+	\frac{u_k^{n+1} - u_k^n}{\delta t} + c\frac{u_{k+1}^n - u_{k-1}^n}{2\delta x}
+	\left\{ 
+		\begin{array}{llll}
+			-c \displaystyle \frac{\delta x }{2}(\frac{u_{k+1}^n - 2u_{k}^n + u_{k+1}^n}{\delta x^2}) = 0 \mbox{ si c>0}
+			\\
+			\\
+			+c \displaystyle \frac{\delta x }{2}(\frac{u_{k+1}^n - 2u_k^n + u_{k+1}^n}{\delta x^2}) = 0 \mbox{ si c<0}
+		\end{array} 
+	\right.
+\end{eqnarray*}
 
-Le terme supplémentaire correspond à la discrétisation centrée au second ordre de $\displaystyle -|c|\frac{\delta x}{2}\partial_{x^2}^2 u$ qui est un terme de diffusion de coefficient $\displaystyle \gamma =  |c|\frac{\delta x}{2}.$ On revient donc à résoudre l'équation de transport-diffusion :
+
+\noindent Le terme supplémentaire correspond à la discrétisation centrée au second ordre de $\displaystyle -|c|\frac{\delta x}{2}\partial_{x^2}^2 u$ qui est un terme de diffusion de coefficient $\displaystyle \gamma =  |c|\frac{\delta x}{2}.$ On revient donc à résoudre l'équation de transport-diffusion \cite{ref8}
 \begin{center}
    $\displaystyle \partial_t \,u + c\, \partial_x u - \gamma \, \partial_{x^2}^2 \, u = 0$ avec $\displaystyle \gamma \xrightarrow{\delta x \rightarrow 0} 0$ 
 \end{center}
 
-à lire
-\\http://www.iecl.univ-lorraine.fr/~Jean-Francois.Scheid/Enseignement/polyM2IMOI.pdf
+\newpage
 \subsubsection{Système d'équation de transport}
 Le cas d'un système d'équations de transport à coefficients constants correspond à un transport de plusieurs éléments. Par exemple dans un cours d'eau on peut étudier le transport de la terre, de pierres, de différents polluants, etc.
-\\Cela revient à résoudre la même "quation que précédemment mais l'inconnu U est un vecteur de plusieurs composantes tel que $u_1$,$u_2$,$u_3$,..
+\\Cela revient à résoudre la même équation que précédemment mais l'inconnu U est un vecteur de plusieurs composantes tel que $u_1$,$u_2$,$u_3$,..
 i.e.
 \\
-\begin{eqnarray*}
-     \partial_t U + C\partial_x U = 0
-     \\=\partial_t \begin{pmatrix}
+\begin{center}
+    $ \partial_t U + C\partial_x U = 0$
+\end{center}
+\begin{center}
+$ \Leftrightarrow \partial_t \begin{pmatrix}
   u_0\\
   u_1\\
   ..\\
@@ -522,10 +534,10 @@ i.e.
   ..\\
   u_{n-1}\\
   u_n
-\end{pmatrix} =0
-\end{eqnarray*}
-\\
-Les $u_k$ deviennent nos différentes inconnues du problème avec $c_k$ leur vitesse respective.La méthode reste la même que dans le cas 1D vu précédemment mais la solution approchée sera sous forme d'un vecteur.
+\end{pmatrix} =0 $
+\end{center}
+\leavevmode\\
+\noindent Les $u_k$ deviennent nos différentes inconnues du problème avec $c_k$ leur vitesse respective. La méthode reste la même que dans le cas 1D vu précédemment mais la solution approchée sera sous forme d'un vecteur.
 \\
 \section{Programmation dans un cas simplifié}
 
@@ -622,8 +634,10 @@ Erreur max = $0.000936$
 
 \subsection{Tests de validation}
 \subsubsection{Explication}
+\subsection{Tests de validation}
+
 Comme test de validation de notre méthode calcul nous avons essayé de testé le code produit pour différentes conditions initiales(voir paragraphe précédent), de plus pour savoir si l'approximation produite est bonne nous avons créer une méthode de calcul d'erreur qui représente en échelle logarithmique l'erreur entre la solution calculée et la solution exacte que nous connaissons pour toute condition initiale d'après ce que nous avons dit précédemment sur la méthode des droites caractéristiques(voir première partie).
-\subsubsection{Comparaison des différents schémas}
+
 \section{Le cas général}
 \subsection{Généralisation à la dimension 2}
 \noindent On cherche à généraliser le cas 1D de l'équation de transport à son problème 2D toujours dans le cas linéaire.
@@ -660,6 +674,7 @@ On peut par exemple considérer $x$ et $y$ dans un domaine $(0,1)$.
 On note $P_{i,j}$=$(i \Delta x,j \Delta y)$ où $i$,$j$ $\in\mathbb{Z}$, les noeuds du maillage de $\mathbb{R}^2$  $u_{i,j}$=$u(i \Delta x,j \Delta y)$ est une approximation de la solution exacte aux noeuds $P_{i,j}$ à l'instant $n\Delta t$.
 \\On pourra choisir un maillage non uniforme i.e un maillage où le pas d'espace en la variable $x$ n'est pas le même que le pas d'espace en la variable $y$.
 Ainsi la principale différence entre le problème 1D et le problème 2D et l'ajout de nouvelles variables qui imposent à l'inconnu u que l'on cherche à identifier d'être représenté sous forme d'une matrice ou x agit sur les lignes et y sur les colonnes.
+\newpage
 \subsection{Application à un exemple}
 Soit le problème suivant
 \begin{eqnarray*}
@@ -672,9 +687,9 @@ Soit le problème suivant
         \end{array}
     \right .
 \end{eqnarray*}
-On choisi des conditions aux limites périodiques que l'on initialises connaissant la valeur de cette fonction pour cette équation qui est $u(x,y,t)=sin(2\pi (x-c_xt))sin(2\pi(y-c_yt))$, ou $c_x$=3 et $c_y=2$.
+On choisit des conditions aux limites périodiques que l'on initialise connaissant la valeur de cette fonction pour cette équation qui est $u(x,y,t)=sin(2\pi (x-c_xt))sin(2\pi(y-c_yt))$, ou $c_x$=3 et $c_y=2$.
 Connaissant la solution exacte on pourra par la suite calculer l'erreur entre la solution exacte et la solution approchée pour voir la pertinence du schéma utilisé et du code produit.
-\\On utilise le schéma définit précédemment pour le cas 2D. On obtient alors une représentation de la solution qui est de la forme suivante :
+\\On utilise le schéma défini précédemment pour le cas 2D. On obtient alors une représentation de la solution qui est de la forme suivante :
 \\\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{Approximation_de_la_solution.png}
@@ -690,25 +705,11 @@ Connaissant la solution exacte on pourra par la suite calculer l'erreur entre la
 à rédiger...
 
 \section{Bibliographie}
-creer une reelle bibliograpgie avec un fichier .bib exterieur
-\noindent Lien du sujet : https://github.com/upici/SaintVenant
-\\
-\\Support de Recherche : $http://www.i2m.univ-amu.fr/perso/maxime.hauray/enseignement/M2-Transport/Cours2.pdf$
-\\$http://perso.ensta-paristech.fr/~becache/COURS-ONDES/Poly-num-0209.pdf$
-\\$http://faccanoni.univ-tln.fr/user/enseignements/2010_2011_M2.pdf$
-\\$http://www.lmpa.univ-littoral.fr/~sadok/fichiers/cours2b.pdf$
-\\$http://math.univ-lyon1.fr/~benzoni/M2AO/Schemas-EDO.pdf$
-\\$https://old.i2m.univ-amu.fr//~herbin/PUBLI/anedp.pdf$
-\\Volume en dimension quelconque
-\\$http://www.iecl.univ-lorraine.fr/~Jean-Francois.Scheid/Enseignement/polyM2IMOI.pdf$
-\\Information sur la condition de cfl
-\\$http://www.breves-de-maths.fr/quoi-ma-cfl-quest-ce-quelle-a-ma-cfl/$
-\\$http://perso.eleves.ens-rennes.fr/~tpier758/cours/edph.pdf$
-\\$https://math.unice.fr/~frapetti/TD5.pdf$ voir pour schema
-\\Livres BU : Résolution numérique des équations de Saint-Venant par la technique de projection en utilisant une méthode des volumes finis dans un maillage non structuré 
+Livres BU : Résolution numérique des équations de Saint-Venant par la technique de projection en utilisant une méthode des volumes finis dans un maillage non structuré 
 
-\bibliographystyle{alpha}
+\bibliographystyle{unsrt}
 \bibliography{biblio}
+
 \end{document}
 
 

@@ -20,7 +20,11 @@ Partie code : correction et fin pour le cas 1D, calcul de l'erreur maximale, gra
 MAJ du CR.
 ## Mardi 13/11/2018
 Partie 1, Q5 : commencée.
-Partie 2, Q2 et 3 : nous avons ajouté une partie au code pour tester les schémas (calcul de l'erreur max en fonction du nombre de mailles ). 
+Partie 2, Q2 et 3 : nous avons ajouté une partie au code pour tester les schémas (calcul de l'erreur max en fonction du nombre de mailles). 
 Le code est plus modulaire puisque nous avons créé 2 fichiers : pour la condition initiale et le choix du schéma.
 Ajout d'informations sur la stabilité et la convergence d'un schéma numérique.
 ## Mardi 20/11/2018
+Passage du code latex de Overleaf vers Texmaker qui a impliqué beaucoup de correction pour que ça puisse être compilé.
+Suite du rapport en latex, correction, rajout d'éléments. Nous avons essayé de faire une bibliographie, mais ça n'a pas fonctionné. A voir pour la prochaine séance !
+Partie 3 : Code pour le cas 2D pour l'équation de transport.
+

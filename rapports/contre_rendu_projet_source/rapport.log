@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.10.1)  20 NOV 2018 10:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.10.2)  20 NOV 2018 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -611,18 +611,18 @@ LaTeX Warning: Label `1D' multiply defined.
 )
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -717,15 +717,15 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \degres on input line 22.
-LaTeX Info: Redefining \dots on input line 22.
+LaTeX Info: Redefining \degres on input line 21.
+LaTeX Info: Redefining \dots on input line 21.
 Package frenchb.ldf Info: Setting StandardItemizeEnv=true for
 (frenchb.ldf)             compatibility with enumitem package,
-(frenchb.ldf)              on input line 22.
+(frenchb.ldf)              on input line 21.
 Package frenchb.ldf Info: Setting StandardEnumerateEnv=true for
 (frenchb.ldf)             compatibility with enumitem package,
-(frenchb.ldf)              on input line 22.
-LaTeX Info: Redefining \up on input line 22.
+(frenchb.ldf)              on input line 21.
+LaTeX Info: Redefining \up on input line 21.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -752,67 +752,67 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \openout3 = `rapport.toc'.
 
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 59--62
+Underfull \hbox (badness 10000) in paragraph at lines 58--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--70
+Underfull \hbox (badness 10000) in paragraph at lines 66--69
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
+Underfull \hbox (badness 10000) in paragraph at lines 98--103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
+Underfull \hbox (badness 10000) in paragraph at lines 98--103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--116
+Underfull \hbox (badness 10000) in paragraph at lines 111--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--132
+Underfull \hbox (badness 10000) in paragraph at lines 123--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--132
+Underfull \hbox (badness 10000) in paragraph at lines 123--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--132
+Underfull \hbox (badness 10000) in paragraph at lines 123--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--143
+Underfull \hbox (badness 10000) in paragraph at lines 134--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--143
+Underfull \hbox (badness 10000) in paragraph at lines 134--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--158
+Underfull \hbox (badness 10000) in paragraph at lines 152--157
 
  []
 
 [3] <dr.png, id=30, 387.69844pt x 170.13562pt>
 File: dr.png Graphic file (type png)
  <use dr.png>
-Package pdftex.def Info: dr.png used on input line 186.
+Package pdftex.def Info: dr.png used on input line 185.
 (pdftex.def)             Requested size: 387.69748pt x 170.1352pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--189
+Underfull \hbox (badness 10000) in paragraph at lines 181--188
 
  []
 
@@ -820,211 +820,202 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--189
 File: transport_de_polluant.png Graphic file (type png)
 
 <use transport_de_polluant.png>
-Package pdftex.def Info: transport_de_polluant.png used on input line 196.
+Package pdftex.def Info: transport_de_polluant.png used on input line 195.
 (pdftex.def)             Requested size: 405.01212pt x 121.20251pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--199
+Underfull \hbox (badness 10000) in paragraph at lines 191--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--199
+Underfull \hbox (badness 10000) in paragraph at lines 191--198
 
  []
 
 <Ki.png, id=37, 247.67531pt x 205.5178pt>
 File: Ki.png Graphic file (type png)
  <use Ki.png>
-Package pdftex.def Info: Ki.png used on input line 218.
+Package pdftex.def Info: Ki.png used on input line 217.
 (pdftex.def)             Requested size: 123.83734pt x 102.75865pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--227
+ [5 <./transport_de_polluant.png> <./Ki.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 223--226
 
  []
 
-[5 <./transport_de_polluant.png> <./Ki.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--232
 
  []
 
 <VF2.png, id=43, 1107.13625pt x 192.72pt>
 File: VF2.png Graphic file (type png)
  <use VF2.png>
-Package pdftex.def Info: VF2.png used on input line 249.
+Package pdftex.def Info: VF2.png used on input line 248.
 (pdftex.def)             Requested size: 442.84665pt x 77.08662pt.
  [6 <./VF2.png>]
 <DFGrille.PNG, id=50, 753.5653pt x 534.49687pt>
 File: DFGrille.PNG Graphic file (type png)
  <use DFGrille.PNG>
-Package pdftex.def Info: DFGrille.PNG used on input line 264.
+Package pdftex.def Info: DFGrille.PNG used on input line 262.
 (pdftex.def)             Requested size: 226.07133pt x 160.3503pt.
  [7 <./DFGrille.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 296--303
+Underfull \hbox (badness 10000) in paragraph at lines 295--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--303
+Underfull \hbox (badness 10000) in paragraph at lines 295--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--317
+Underfull \hbox (badness 10000) in paragraph at lines 311--317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--317
+Underfull \hbox (badness 10000) in paragraph at lines 311--317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--323
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 319--323
+Underfull \hbox (badness 10000) in paragraph at lines 319--324
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 330--344
+Underfull \hbox (badness 10000) in paragraph at lines 331--345
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--344
+Underfull \hbox (badness 10000) in paragraph at lines 331--345
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--344
+Underfull \hbox (badness 10000) in paragraph at lines 331--345
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--349
+Underfull \hbox (badness 10000) in paragraph at lines 346--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--365
+Underfull \hbox (badness 10000) in paragraph at lines 362--368
 
  []
 
 [9] <cone.png, id=62, 376.40625pt x 238.64156pt>
 File: cone.png Graphic file (type png)
  <use cone.png>
-Package pdftex.def Info: cone.png used on input line 413.
+Package pdftex.def Info: cone.png used on input line 416.
 (pdftex.def)             Requested size: 263.48257pt x 167.04794pt.
  [10]
-
-LaTeX Warning: Citation `ref9' on page 11 undefined on input line 418.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 429--438
+Underfull \hbox (badness 10000) in paragraph at lines 432--441
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--438
+Underfull \hbox (badness 10000) in paragraph at lines 432--441
 
  []
 
 
-LaTeX Warning: Command \` invalid in math mode on input line 438.
+LaTeX Warning: Command \` invalid in math mode on input line 441.
 
 Missing character: There is no è in font cmr8!
 [11 <./cone.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 480--485
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 498--502
+Underfull \hbox (badness 10000) in paragraph at lines 483--488
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 526--530
+Underfull \hbox (badness 10000) in paragraph at lines 508--512
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 534--547
+Underfull \hbox (badness 10000) in paragraph at lines 539--542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 534--547
+Underfull \hbox (badness 10000) in paragraph at lines 546--559
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--559
 
  []
 
 [13] <1D_c1_5000_s1.png, id=76, 462.528pt x 346.896pt>
 File: 1D_c1_5000_s1.png Graphic file (type png)
  <use 1D_c1_5000_s1.png>
-Package pdftex.def Info: 1D_c1_5000_s1.png used on input line 553.
+Package pdftex.def Info: 1D_c1_5000_s1.png used on input line 565.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <Temp_max_c1_5000_s1.png, id=77, 462.528pt x 346.896pt>
 File: Temp_max_c1_5000_s1.png Graphic file (type png)
 
 <use Temp_max_c1_5000_s1.png>
-Package pdftex.def Info: Temp_max_c1_5000_s1.png used on input line 554.
+Package pdftex.def Info: Temp_max_c1_5000_s1.png used on input line 566.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <1D_c1_5000_s1_init2.png, id=78, 462.528pt x 346.896pt>
 File: 1D_c1_5000_s1_init2.png Graphic file (type png)
 
 <use 1D_c1_5000_s1_init2.png>
-Package pdftex.def Info: 1D_c1_5000_s1_init2.png used on input line 562.
+Package pdftex.def Info: 1D_c1_5000_s1_init2.png used on input line 574.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <Temp_max_c1_5000_s1_i2.png, id=79, 462.528pt x 346.896pt>
 File: Temp_max_c1_5000_s1_i2.png Graphic file (type png)
 
 <use Temp_max_c1_5000_s1_i2.png>
-Package pdftex.def Info: Temp_max_c1_5000_s1_i2.png used on input line 563.
+Package pdftex.def Info: Temp_max_c1_5000_s1_i2.png used on input line 575.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <1D_c1_5000_s1_init3.png, id=80, 462.528pt x 346.896pt>
 File: 1D_c1_5000_s1_init3.png Graphic file (type png)
 
 <use 1D_c1_5000_s1_init3.png>
-Package pdftex.def Info: 1D_c1_5000_s1_init3.png used on input line 571.
+Package pdftex.def Info: 1D_c1_5000_s1_init3.png used on input line 583.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <Temp_max_c1_5000_s1_i3.png, id=81, 462.528pt x 346.896pt>
 File: Temp_max_c1_5000_s1_i3.png Graphic file (type png)
 
 <use Temp_max_c1_5000_s1_i3.png>
-Package pdftex.def Info: Temp_max_c1_5000_s1_i3.png used on input line 572.
+Package pdftex.def Info: Temp_max_c1_5000_s1_i3.png used on input line 584.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [14 <./1D_c1_5000_s1.png> <./Temp_max_c1_5000_s1.png> <./1D_c1_5000_s1_init2.p
 ng> <./Temp_max_c1_5000_s1_i2.png>]
 <1D_c1_5000.png, id=89, 462.528pt x 346.896pt>
 File: 1D_c1_5000.png Graphic file (type png)
  <use 1D_c1_5000.png>
-Package pdftex.def Info: 1D_c1_5000.png used on input line 594.
+Package pdftex.def Info: 1D_c1_5000.png used on input line 606.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <Temp_max_c1_5000.png, id=90, 462.528pt x 346.896pt>
 File: Temp_max_c1_5000.png Graphic file (type png)
 
 <use Temp_max_c1_5000.png>
-Package pdftex.def Info: Temp_max_c1_5000.png used on input line 595.
+Package pdftex.def Info: Temp_max_c1_5000.png used on input line 607.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <1D_c1_5000_init2.png, id=91, 462.528pt x 346.896pt>
 File: 1D_c1_5000_init2.png Graphic file (type png)
 
 <use 1D_c1_5000_init2.png>
-Package pdftex.def Info: 1D_c1_5000_init2.png used on input line 604.
+Package pdftex.def Info: 1D_c1_5000_init2.png used on input line 616.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 File: Temp_max_c1_5000_s1_i2.png Graphic file (type png)
  <use Temp_max_c1_5000_s1_i2.png>
-Package pdftex.def Info: Temp_max_c1_5000_s1_i2.png used on input line 605.
+Package pdftex.def Info: Temp_max_c1_5000_s1_i2.png used on input line 617.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [15 <./1D_c1_5000_s1_init3.png> <./Temp_max_c1_5000_s1_i3.png> <./1D_c1_5000.p
 ng> <./Temp_max_c1_5000.png>] <1D_c1_5000_init3.png, id=99, 462.528pt x 346.896
@@ -1032,92 +1023,86 @@ pt>
 File: 1D_c1_5000_init3.png Graphic file (type png)
 
 <use 1D_c1_5000_init3.png>
-Package pdftex.def Info: 1D_c1_5000_init3.png used on input line 614.
+Package pdftex.def Info: 1D_c1_5000_init3.png used on input line 626.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 <Temp_max_c1_5000_init3.png, id=100, 462.528pt x 346.896pt>
 File: Temp_max_c1_5000_init3.png Graphic file (type png)
 
 <use Temp_max_c1_5000_init3.png>
-Package pdftex.def Info: Temp_max_c1_5000_init3.png used on input line 615.
+Package pdftex.def Info: Temp_max_c1_5000_init3.png used on input line 627.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--635
+Underfull \hbox (badness 10000) in paragraph at lines 643--649
 
  []
 
 [16 <./1D_c1_5000_init2.png> <./1D_c1_5000_init3.png> <./Temp_max_c1_5000_init3
 .png>]
-Underfull \hbox (badness 10000) in paragraph at lines 642--646
+Underfull \hbox (badness 10000) in paragraph at lines 656--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--655
+Underfull \hbox (badness 10000) in paragraph at lines 665--669
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--655
+Underfull \hbox (badness 10000) in paragraph at lines 665--669
 
  []
 
-<Approximation_de_la_solution.png, id=107, 462.528pt x 345.4506pt>
+[17] <Approximation_de_la_solution.png, id=110, 462.528pt x 345.4506pt>
 File: Approximation_de_la_solution.png Graphic file (type png)
 
 <use Approximation_de_la_solution.png>
-Package pdftex.def Info: Approximation_de_la_solution.png used on input line 68
-0.
+Package pdftex.def Info: Approximation_de_la_solution.png used on input line 69
+5.
 (pdftex.def)             Requested size: 231.26343pt x 172.72487pt.
 
-<Approximation_de_la_solution-1_discretisation25.png, id=108, 462.528pt x 345.4
+<Approximation_de_la_solution-1_discretisation25.png, id=111, 462.528pt x 345.4
 506pt>
 File: Approximation_de_la_solution-1_discretisation25.png Graphic file (type pn
 g)
  <use Approximation_de_la_solution-1_discretisation25.png>
 Package pdftex.def Info: Approximation_de_la_solution-1_discretisation25.png us
-ed on input line 681.
+ed on input line 696.
 (pdftex.def)             Requested size: 231.26343pt x 172.72487pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 674--684
+Underfull \hbox (badness 10000) in paragraph at lines 689--699
 
  []
 
-[17]
-Overfull \hbox (81.2945pt too wide) in paragraph at lines 693--709
-[]\T1/cmr/m/n/12 creer une reelle bi-blio-grap-gie avec un fi-chier .bib ex-te-
-rieur Lien du su-jet : https ://gi-thub.com/upici/SaintVenant 
+(./rapport.bbl [18 <./Approximation_de_la_solution.png> <./Approximation_de_la_
+solution-1_discretisation25.png>]
+Underfull \hbox (badness 2134) in paragraph at lines 21--24
+[]\T1/cmr/m/n/12 Sophia-Antipolis.  Équa-tions de trans-port, 2006/2007.  https
+ ://math.unice.fr/ fra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--709
-
+Underfull \hbox (badness 6526) in paragraph at lines 26--29
+[]\T1/cmr/m/n/12 Université de Lyon Unk-nown.  Schéma d'eu-ler ex-pli-cite.  ht
+tp ://math.univ-
  []
 
 
-Overfull \hbox (21.51462pt too wide) in paragraph at lines 693--709
-\T1/cmr/m/n/12 Support de Re-cherche : $\OML/cmm/m/it/12 http \OT1/cmr/m/n/12 :
- \OML/cmm/m/it/12 ==www:i\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 m:univ \OMS/cmsy/m/n
-/12 ^^@ \OML/cmm/m/it/12 amu:fr=perso=maxime:hauray=enseignement=M\OT1/cmr/m/n/
-12 2 \OMS/cmsy/m/n/12 ^^@
+Underfull \hbox (badness 10000) in paragraph at lines 36--40
+[]\T1/cmr/m/n/12 J.-F.Scheid.  Mé-thodes nu-mé-riques pour la dy-na-mique des f
+uides, 2011-2012.
  []
 
-[18 <./Approximation_de_la_solution.png> <./Approximation_de_la_solution-1_disc
-retisation25.png>]
-No file rapport.bbl.
-[19] (./rapport.aux)
-
-LaTeX Warning: There were undefined references.
-
+) [19] (./rapport.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6111 strings out of 493013
- 87291 string characters out of 6135682
- 169881 words of memory out of 5000000
- 9507 multiletter control sequences out of 15000+600000
+ 6119 strings out of 493013
+ 87353 string characters out of 6135682
+ 166908 words of memory out of 5000000
+ 9513 multiletter control sequences out of 15000+600000
  18524 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,14n,39p,632b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1139,7 +1124,7 @@ e/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/
 public/cm-super/sfcc1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm
 1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share
 /texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on rapport.pdf (20 pages, 974885 bytes).
+Output written on rapport.pdf (20 pages, 973195 bytes).
 PDF statistics:
  186 PDF objects out of 1000 (max. 8388607)
  108 compressed objects within 2 object streams
