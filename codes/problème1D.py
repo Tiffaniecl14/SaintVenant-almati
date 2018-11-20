@@ -16,11 +16,11 @@ N=int(N)
 #Choix de la condition initiale
 f=initiale.i1
 #Choix du schema 
-s=schema.s1
+s=schema.s2
 
 #h le pas d'espace
 h=1./N
-x=arange(0,1+h,h) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
+x=linspace(0,1,N+1) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
 u=zeros((N+1))
 uN=zeros((N+1))
 erreur_max=0
@@ -56,9 +56,11 @@ while t<Tmax :
     if erreur>erreur_max :
         erreur_max=erreur
         
-    if niter%10==0:
+    if niter%1000==0:
         ax.plot(x,u,'-r')
         ax.plot(x,u_exacte,':b')
+        xlabel("valeur de x")
+        ylabel("Valeur de u solution")
 show()
 
 print("Erreur maximale pour la resolution du probleme : %f"%erreur_max)
@@ -67,6 +69,8 @@ fig2,ax2 = subplots(1,1)
 ax2.set_title("Comparaison des solutions au temps Tmax")
 ax2.plot(x,u,'-r',label="solution calculee")
 ax2.plot(x,u_exacte,':b',label="solution exacte")
+xlabel("valeur de x")
+ylabel("Valeur de u solution")
 #trouver la possiblité d'afficher pour une certaine valeur de t
 legend()
 show()

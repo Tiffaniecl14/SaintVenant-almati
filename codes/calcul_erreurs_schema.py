@@ -13,14 +13,14 @@ cfl=float(cfl)
 #Choix de la condition initiale
 f=initiale.i1
 #Choix du schema 
-s=schema.s5
+s=schema.s3
 
 def calcul_erreur(N,c=1,plot=False):
     
     #N nombre de mailles
     #h le pas d'espace
     h=1./N
-    x=arange(0,1+h,h) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
+    x=linspace(0,1,N+1) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
     u=zeros((N+1))
     uN=zeros((N+1))
     erreur_max=0
@@ -75,7 +75,7 @@ def calcul_erreur(N,c=1,plot=False):
     return erreur_max
 
 #choix du nombre de mailles
-Ns=[25,50,100,200,300,500,700,800,900,1000]
+Ns=[200,300,500,700,800,900,1000,2000,4000,5000]
 #creation d'un tableau vide
 err=[]
 for i in arange(0,len(Ns)):

@@ -3,10 +3,10 @@
 from pylab import *
 #♥valeur initilale possible pour le cas 2D
 def i1(x,y):
-    res=sin(3*pi*x)*sin(3*y*pi)
+    res=sin(2*pi*x)*sin(2*y*pi)
     return res
 def iexact1(x,y,t,cx,cy):
-    res=sin(3*pi*(x-cx*t))*sin(3*pi*(y-cy*t))
+    res=sin(2*pi*(x-cx*t))*sin(2*pi*(y-cy*t))
     return res
     
     

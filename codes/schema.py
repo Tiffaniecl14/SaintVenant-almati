@@ -15,14 +15,14 @@ def s1(c,f,x,t,u,uN,dt,h): #schema stable car tient compte du signe de c
 #schema centre de Richardson
 def s2(c,f,x,t,u,uN,dt,h): #schema instable car ne tient pas compte du signe de c
     uN[0]=f(x[0]-c*t) 
-    uN[1:-1]=u[1:-1]+c*(dt/h)*(u[2:]-u[:-2])/2
+    uN[1:-1]=u[1:-1]-c*(dt/(2*h))*(u[2:]-u[:-2])
     uN[-1]=f(x[-1]-c*t)
     return uN
     
 #schema de Lax-Wendroff
 def s3(c,f,x,t,u,uN,dt,h): 
     uN[0]=f(x[0]-c*t) 
-    uN[1:-1]=u[1:-1]-c*(dt/h)*(u[2:]-u[:-2])+(c*c*dt*dt/(h*h))*(u[2:]-2*u[1:-1]+u[:-2])
+    uN[1:-1]=u[1:-1]-c*0.5*(dt/h)*(u[2:]-u[:-2])+(c*c*dt*dt/(h*h))*(u[2:]-2*u[1:-1]+u[:-2])
     uN[-1]=f(x[-1]-c*t)
     return uN
     

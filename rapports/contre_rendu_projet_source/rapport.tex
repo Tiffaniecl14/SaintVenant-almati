@@ -3,7 +3,7 @@
 \usepackage{geometry}
 \usepackage{graphics}
 \usepackage[T1]{fontenc}
-\usepackage[frenchb]{babel}
+\usepackage[french]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
@@ -415,7 +415,7 @@ le flux à travers l'arête $e_{i,j}$ est approché par
 	\label{1D}
 	\end{figure}
 	
-\noindent Numériquement et peu importe la dimension du problème, cette condition est équivalente à la condition de CFL (coefficient de Courant, Fredrichs, Lewy).
+\noindent Numériquement et peu importe la dimension du problème, cette condition est équivalente à la condition de CFL \cite{ref9} (coefficient de Courant, Fredrichs, Lewy).
 Le schéma est stable si ce coefficient est inférieur à 1 et produira une solution cohérente. 
 La condition de CFL impose au coefficient d'amplification d'être plus petit que $1$.
 \\Par exemple sur les schémas à un pas, un schéma numérique est déterminé par la formule suivante :
@@ -530,18 +530,100 @@ Les $u_k$ deviennent nos différentes inconnues du problème avec $c_k$ leur vit
 \section{Programmation dans un cas simplifié}
 
 \subsection{Explication de l'implémentation de la méthode}
-
-\noindent Explication du code et analyse des résultats.
-à rédiger...
-
-
+\subsubsection{Explication du code et analyse des résultats}
+On va dans cette section détailler l'implémentation du problème 1D.
+On a choisi de travailler  avec différents schémas dont on explicitera les résultats.
+Le problème 1D est conçu de façon à modéliser suivant le schéma demandé une approximation de u solution exacte du problème de transport 1D sur $[0;1]$.
+Les schémas sont disponibles dans un fichier séparé et il est possible d'utiliser les schéma suivant :
+\\
+\\schéma décentré
+\\schéma centré de Richardson
+\\schéma de Lax Wendroff
+\\schéma d'Euler explicite en aval
+\\schéma de Lax-Friedrichs
+\\
+\\Pour ce faire nous avons décidé de définir le pas de temps en fonction de la condition de cfl et du pas d'espace defini par $\frac{1}{N}$ où $N$ est le nombre de maille que l'on décide de démandé à l'utilisateur, ainsi on peut facilement comparé le résultat obtenu en fonction de discrétisations en espace différentes.
+\\La partie principale du code nous permet d'afficher $2$ figures. La première affiche pour certains pas de temps la comparaison entre la solution exacte et la solution calculée. L'autre figure affiche seulement la comparaison au dernier pas de temps et on peut aussi voir sur le terminale l'erreur maximale de la méthode entre la solution exacte et son approximation tous au long du calcul. Comme test de validation un autre fichier est disponible $"calcule-erreurs -schema"$ qui lui affichera l'erreur entre la solution exacte et l'approximation en échelle logarithmique.
 \subsection{Exemples concrets de solutions exactes}
-à rédiger...
+On va considéré seulement pour montrer quelques résultats possible une vitesse constante $c=1$ et une discrétisation en espace de $5000$.
+\subsubsection{schéma upwind}
+Premiére condition initiale : $cos(2 \pi x)$
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{1D_c1_5000_s1.png}
+	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D} 
+	\end{figure}
+Erreur max = $0.017672$
+\\Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{1D_c1_5000_s1_init2.png}
+	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1_i2.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D} 
+	\end{figure}
+Erreur max = $0.337537$
+\\Troisième condition initiale : $1.*(x<0.2)$
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{1D_c1_5000_s1_init3.png}
+	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1_i3.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D} 
+	\end{figure}
+Erreur max = $2.261373$
+\subsubsection{schéma de Richardson}
 
+Premiére condition initiale : $cos(2 \pi x)$
+ =
+Erreur max = 
+\\Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
+
+Erreur max =
+\\Troisième condition initiale : $1.*(x<0.2)$
+
+Erreur max = 
+
+\subsubsection{schema de Lax Wendroff}
+Premiére condition initiale : $cos(2 \pi x)$
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{1D_c1_5000.png}
+	\includegraphics[scale=0.45]{Temp_max_c1_5000.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D} 
+	\end{figure}
+Erreur max = $0.020306$
+\\Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{1D_c1_5000_init2.png}
+	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1_i2.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D}
+	\end{figure}
+Erreur max = $1.430819$
+\\Troisième condition initiale : $1.*(x<0.2)$
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{1D_c1_5000_init3.png}
+	\includegraphics[scale=0.45]{Temp_max_c1_5000_init3.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D}
+	\end{figure}
+Erreur max = $0.000936$
+\subsubsection{schéma d'Euler explicite en aval}
+\subsubsection{schéma LaxFriedrichs}
 
 \subsection{Tests de validation}
-à rédiger...
-
+\subsubsection{Explication}
+Comme test de validation de notre méthode calcul nous avons essayé de testé le code produit pour différentes conditions initiales(voir paragraphe précédent), de plus pour savoir si l'approximation produite est bonne nous avons créer une méthode de calcul d'erreur qui représente en échelle logarithmique l'erreur entre la solution calculée et la solution exacte que nous connaissons pour toute condition initiale d'après ce que nous avons dit précédemment sur la méthode des droites caractéristiques(voir première partie).
+\subsubsection{Comparaison des différents schémas}
 \section{Le cas général}
 \subsection{Généralisation à la dimension 2}
 \noindent On cherche à généraliser le cas 1D de l'équation de transport à son problème 2D toujours dans le cas linéaire.
@@ -625,32 +707,10 @@ creer une reelle bibliograpgie avec un fichier .bib exterieur
 \\$https://math.unice.fr/~frapetti/TD5.pdf$ voir pour schema
 \\Livres BU : Résolution numérique des équations de Saint-Venant par la technique de projection en utilisant une méthode des volumes finis dans un maillage non structuré 
 
+\bibliographystyle{alpha}
+\bibliography{biblio}
 \end{document}
 
-\section{Aide LaTeX}
 
-Image :
-
-    \begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.5]{dispo.jpg}
-	\caption{Dispositif expérimental}
-	\end{figure}
-
-Tableau :
-
-\begin{table} [H]
-    \centering
-    \begin{tabular}{|c|c|c|c|}
-    \hline
-    Poutre & A & B & C\\
-    \hline
-    Rotation unitaire $\alpha$ & $0,104\pm0,003$ & $0,049\pm0,001$ & $0,030\pm0,003$ \\
-    Angle de torsion $\theta_0$ & $0,056\pm0,002$ & $0,0271\pm0,0007$ & $0,016\pm0,002$ \\
-    \hline
-    \end{tabular}
-    \caption{Valeurs expérimentales de la rotation unitaire $\alpha$ et de l'angle de torsion $\theta_0$}
-    \end{table}
-    
     
     
