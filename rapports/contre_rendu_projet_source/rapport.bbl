@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{ref1}
+Yves Coudier.
+\newblock Support de projet, 2017.
+\newblock https://github.com/upici/SaintVenant.
+
+\bibitem{ref10}
+Pierron Théo.
+\newblock Équations différentielles et phénomènes de transport.
+\newblock http://perso.eleves.ens-rennes.fr/~tpier758/cours/edph.pdf.
+
+\bibitem{ref12}
+Méthodes des volumes finis.
+\newblock https://fr.wikipedia.org/wiki/.
+
+\bibitem{ref7}
+Raphaele Herbin.
+\newblock Méthodes de differences finies etvolumes finis pour les
+  problemeselliptiques et paraboliques.
+\newblock
+  https://www.i2m.univ-amu.fr/perso/raphaele.herbin/PUBLI/anedp-chap2.pdf.
+
+\bibitem{ref11}
+Sophia-Antipolis.
+\newblock Équations de transport, 2006/2007.
+\newblock https://math.unice.fr/~frapetti/TD5.pdf.
+
+\bibitem{ref6}
+Université de~Lyon Unknown.
+\newblock Schéma d'euler explicite.
+\newblock http://math.univ-lyon1.fr/~benzoni/M2AO/Schemas-EDO.pdf.
+
+\bibitem{ref9}
+J.-F.Scheid.
+\newblock Quoi ma cfl, qu'est-ce qu'elle a ma cfl ?, 2013.
+\newblock http://www.breves-de-maths.fr/quoi-ma-cfl-quest-ce-quelle-a-ma-cfl/.
+
+\bibitem{ref8}
+J.-F.Scheid.
+\newblock Méthodes numériques pour la dynamique des fuides, 2011-2012.
+\newblock
+  http://www.iecl.univ-lorraine.fr/~Jean-Francois.Scheid/Enseignement/polyM2IMOI.pdf.
+
+\end{thebibliography}

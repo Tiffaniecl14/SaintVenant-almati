@@ -1,7 +1,7 @@
-\select@language {french}
+\babel@toc {french}{}
 \contentsline {section}{\numberline {1}Introduction}{2}
 \contentsline {section}{\numberline {2}Notations}{2}
-\contentsline {section}{\numberline {3}Recherche de ressources, documentation}{2}
+\contentsline {section}{\numberline {3}Recherche de ressources et documentation}{2}
 \contentsline {subsection}{\numberline {3.1}L'\IeC {\'e}quation de transport}{2}
 \contentsline {subsection}{\numberline {3.2}R\IeC {\'e}solution du probl\IeC {\`e}me 1D}{3}
 \contentsline {subsubsection}{\numberline {3.2.1}R\IeC {\'e}solution par la m\IeC {\'e}thode des caract\IeC {\'e}ristiques}{3}
@@ -27,16 +27,14 @@
 \contentsline {subsection}{\numberline {4.2}Exemples concrets de solutions exactes}{14}
 \contentsline {subsubsection}{\numberline {4.2.1}sch\IeC {\'e}ma upwind}{14}
 \contentsline {subsubsection}{\numberline {4.2.2}sch\IeC {\'e}ma de Richardson}{15}
-\contentsline {subsubsection}{\numberline {4.2.3}schema de Lax Wendroff}{15}
-\contentsline {subsubsection}{\numberline {4.2.4}sch\IeC {\'e}ma d'Euler explicite en aval}{16}
-\contentsline {subsubsection}{\numberline {4.2.5}sch\IeC {\'e}ma LaxFriedrichs}{16}
-\contentsline {subsection}{\numberline {4.3}Tests de validation}{16}
-\contentsline {subsubsection}{\numberline {4.3.1}Explication}{16}
-\contentsline {subsection}{\numberline {4.4}Tests de validation}{16}
-\contentsline {section}{\numberline {5}Le cas g\IeC {\'e}n\IeC {\'e}ral}{17}
-\contentsline {subsection}{\numberline {5.1}G\IeC {\'e}n\IeC {\'e}ralisation \IeC {\`a} la dimension 2}{17}
-\contentsline {subsection}{\numberline {5.2}Application \IeC {\`a} un exemple}{18}
-\contentsline {subsection}{\numberline {5.3}R\IeC {\'e}solution du probl\IeC {\`e}me de rupture de barrage des \IeC {\'e}quations de Saint Venant}{18}
-\contentsline {subsubsection}{\numberline {5.3.1}Les \IeC {\'e}quations de Saint-Venant}{18}
-\contentsline {subsubsection}{\numberline {5.3.2}R\IeC {\'e}solution du syst\IeC {\'e}me d'\IeC {\'e}quation de Saint Venant}{18}
-\contentsline {section}{\numberline {6}Bibliographie}{18}
+\contentsline {subsubsection}{\numberline {4.2.3}schema de Lax Wendroff}{16}
+\contentsline {subsubsection}{\numberline {4.2.4}sch\IeC {\'e}ma Lax Friedrichs}{17}
+\contentsline {subsection}{\numberline {4.3}Tests de validation}{19}
+\contentsline {subsubsection}{\numberline {4.3.1}Explication}{19}
+\contentsline {section}{\numberline {5}Le cas g\IeC {\'e}n\IeC {\'e}ral}{21}
+\contentsline {subsection}{\numberline {5.1}G\IeC {\'e}n\IeC {\'e}ralisation \IeC {\`a} la dimension 2}{21}
+\contentsline {subsection}{\numberline {5.2}Application \IeC {\`a} un exemple}{22}
+\contentsline {subsection}{\numberline {5.3}R\IeC {\'e}solution du probl\IeC {\`e}me de rupture de barrage des \IeC {\'e}quations de Saint Venant}{22}
+\contentsline {subsubsection}{\numberline {5.3.1}Les \IeC {\'e}quations de Saint-Venant}{22}
+\contentsline {subsubsection}{\numberline {5.3.2}R\IeC {\'e}solution du syst\IeC {\'e}me d'\IeC {\'e}quation de Saint Venant}{23}
+\contentsline {section}{\numberline {6}Bibliographie}{24}

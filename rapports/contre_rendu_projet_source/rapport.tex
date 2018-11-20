@@ -14,12 +14,15 @@
 \usepackage{enumitem}
 \usepackage{pifont}
 \usepackage{array}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{color}
 \addto\captionsfrench{\def\tablename{TABLEAU}}
 \geometry{hmargin=2cm,vmargin=2cm}
 
 \begin{document}
-
+\definecolor{orange}{rgb}{0.99,0.79,0.07}
+\definecolor{OliveGreen}{rgb}{0,0.6,0}
+\definecolor{violet}{rgb}{0.60,0,0.95}
 \begin{titlepage}
 \begin{center}
 
@@ -36,15 +39,12 @@ Compte Rendu\\
 \large
 \vspace{0.7cm}
 M1 - EDPMA\\
-Groupe AlMati\\
+Groupe {\color{orange}Al}{\color{OliveGreen}Ma}{\color{violet}Ti}\\
 \vspace{0.7cm}
-Alice \bsc{Castagnet} \\ Marine \bsc{Redondo} \\ Tiffanie \bsc{CARLIER} \\
+{\color{orange}Al}ice \bsc{Castagnet} \\{\color{OliveGreen} Ma}rine \bsc{Redondo} \\ {\color{violet}Ti}ffanie \bsc{CARLIER} \\
 \vspace{0.7cm}
 Encadrant\\
 \bsc{M. Leguèbe}\\
-\vspace{2cm}
-\Large
-\textbf{14 novembre 2018}
 \end{center}
 \end{titlepage}
 
@@ -86,7 +86,7 @@ Encadrant\\
 \\$n_{i,j}$ : normale à l'arête $e_{i,j}$ extérieure à $K_i$
 
 	
-\section{Recherche de ressources, documentation}
+\section{Recherche de ressources et documentation}
 \subsection{L'équation de transport}
 \noindent 1. Une équation de transport est une équation de la forme :
 
@@ -178,17 +178,18 @@ Considérons $(t^*,x^*)$ un point du plan avec $t^*>0$ ainsi que $X^*(t)$ la car
 \begin{center}
         $u(t,x)=u_0(x-ct) \;\;\;\;\forall x\in \mathbb{R}, \forall t>0 $
 \end{center}
- Cela signifie que connaissant $u_0(x_0)$ on peut déterminer u(x,t) sur toute la demi droite caractéristique issue de $x_0$ pour tout $x_0$
-\\
+ Cela signifie que connaissant $u_0(x_0)$ on peut déterminer $u(x,t)$ sur toute la demi droite caractéristique issue de $x_0$ pour tout $x_0$
+\\A l'aide cette méthode il est facile de voir le critére de condition aux limites. Lorsque le pied de la caractéristique touche le bord du domaine il n'y a plus d'information pour calculer la partie restante (en violet ou en bleu sur la figure suivante).
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=1]{dr.png}
-	\caption{Direction des caractéristiques suivant la valeur de $c$}
+	\includegraphics[scale=0.8]{condition_bord.png}
+	\caption{Conditions aux bords}
 	\label{1D}
 	\end{figure}
+Ainsi suivant la valeur du vecteur vitesse pour avoir une approximation pertinente il est nécessaire d'ajouter ces conditions.
 \newpage
 \subsubsection{Application}
-Considérons l'exemple d'un tube dans lequel coule de l'eau à une vitesse $c$ que l'on choisit positive telle que l'eau présente des traces d'un certain polluant. Ainsi d'après ce que l'on a prouvé précédemment, la distribution du polluant à l'instant $t=0$ est inchangée pour un temps $t_1 > 0$ à une translation près de $ct_1$.
+Considérons l'exemple d'un tube dans lequel coule de l'eau à une vitesse $c$ que l'on choisit positive telle que l'eau présente des traces d'un certain polluant. Ainsi d'après ce que l'on a prouvé précédemment, la distribution du polluant à l'instant $t=0$ est inchangée pour un temps $t_1 > 0$ à une translation près de $ct_1$ ( en considérant le diamètre du tube relativement petit).
 \\
 \\\begin{figure}[H]
 	\centering
@@ -202,7 +203,7 @@ Considérons l'exemple d'un tube dans lequel coule de l'eau à une vitesse $c$ q
 
 \subsubsection{Notion de maillage et de discrétisation}
 
-\noindent Pour définir la méthode des volumes finis il est nécessaire de définir la notion de maillage.
+\noindent Pour définir la méthode des volumes finis il est nécessaire de définir la notion de maillage \cite{ref12}.
 Un maillage est la discrétisation spatiale d'un milieu continu, ou une modélisation géométrique d'un domaine par des éléments proportionnés finis et bien définis. Un maillage doit vérifier les propriétés suivantes :
 \\Soit $\Omega$ l'ensemble d'espace associé à notre problème. 
 Les éléments de la suite $(K_i)_{1\leq{i}\leq{I}}$ sont appelés volumes de contrôle. Cette suite définie un maillage du domaine $\Omega$  vérifiant :
@@ -236,8 +237,12 @@ où $\varepsilon K$ est l'ensemble des arêtes du volume de contrôle $K$, $n_{\
 \end{eqnarray}
 
 \noindent Ici, $\gamma$ est la mesure de $e_{i,j}$ où $e_{i,j}$ est l'arête commune aux deux volumes de contrôle $K_i$ et $K_j$ et $n_{i,j}$ est la normale à l'arête $e_{i,j}$ sortant du volume de contrôle $K_i$. 
-\textcolor{red}{Ajouter Figure ?}
-
+Sur la figure suivante l'arrête de contrôle est défini par la surface bleu.
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.2]{volume_controle.png}
+	\caption{Exemple d'une arrête définissant la frontière entre deux volumes de contrôle}
+	\end{figure}
 \subsubsection{Méthode des volumes finis cas 1D }
 \paragraph{Méthode générale :}
 La Figure ci-dessous représente un maillage en 1 dimension. Ici, l'espace $\Omega$ est le segment $[AB]$. On divise ce segment en petits segments délimités par les points $x_i$ où $i\in \{1,l\}$ (en vert sur le schéma). On note que ici, tous les $x_i$ sont strictement à l'intérieur des extrémités $A$ et $B$, le volume de contrôle devant être ouvert. On définit ensuite les $x_{i\pm\frac{1}{2}}$ (en rouge sur le schéma). Les volumes de contrôle $K_i$ définis précédemment correspondent aux intervalles ouverts $]x_{i-\frac{1}{2}},x_{i+\frac{1}{2}}[$ pour $i\in \{1,l\}$.
@@ -249,7 +254,6 @@ La Figure ci-dessous représente un maillage en 1 dimension. Ici, l'espace $\Ome
 	\caption{Maillage en 1 dimension}
 	\label{1D}
 	\end{figure}
-\newpage
 \noindent Pour calculer numériquement la solution du problème 1D on introduit une grille qui est cette fois en x et en t.
 \noindent On introduit les notations suivantes :
 \\
@@ -282,8 +286,7 @@ La méthode d'Euler pour un schéma explicite consiste à associer à une équat
 \begin{eqnarray}
         u^{n+1}-u^{n} =  \int_{t^{n}}^{t^{n+1}}\big(f(s,u(s)))ds
 \end{eqnarray}
-
-\newpage \noindent En appliquant la méthode d'Euler à l'équation (3), on obtient :
+\noindent En appliquant la méthode d'Euler à l'équation (3), on obtient :
 
 \begin{center}
         $u^{n+1}_i=u_i^n + \displaystyle c \, \frac{\Delta t}{\Delta x}(u_{i+\frac{1}{2}}^n-u_{i-\frac{1}{2}}^n)$
@@ -309,16 +312,16 @@ D'autres schémas existent, quelques uns sont listés ci-dessous \cite{ref11}.
 \end{eqnarray*}
 
 \noindent Il s'agit ici d'un schéma décentré permettant de prendre l'information du bon côté suivant la direction de la caractéristique donné par le signe du champ vitesse $c$ i.e que le décentrement tient compte de la direction de la propagation.
-\\On constatera par la suite qu'il s'agit du meilleur schéma dans le cas 1D tel que la convergence soit assurée peu importe la valeur du vecteur c. Il est tout de même important de préciser que la condition de CFL inférieure ou égale à 1 est toujours une obligation.
-L'ordre global avec ce schéma est en $O(\delta t + \delta x)$.
+\\On constatera par la suite qu'il s'agit du bon schéma dans le cas 1D tel que la convergence soit assurée suivant la valeur du vecteur c. Il est tout de même important de préciser que la condition de CFL inférieure ou égale à 1 est toujours une obligation. Pour ce schéma la cfl est défini par  $|1-\frac{c\Delta t}{\Delta x}|-|\frac{c\Delta t}{\Delta x}|\leq 1$
+L'ordre global avec ce schéma est en $O(\Delta t + \Delta x)$.
 \\
 \\- Le schéma de Lax-Wendroff :
 \\
 \begin{eqnarray*}
         u^{n+1}_i=u_i^n-\frac{c\Delta t}{\Delta x}({u_{i+1}^n-u_{i-1}^n}) +\frac{c^2\Delta t^2}{\Delta x^2}(u_{i+1}^n-2u_{i}^n+u^{n}_{i-1})
 \end{eqnarray*}
-\\
-La condition de CFL 
+\\C'est un schéma stable du $2^{nd}$ ordre en temp et en espace, il peut être vu comme une modification de schéma de Lax Friedrichs.
+La condition de cfl est défini par $|c|\frac{\Delta t}{\Delta x}\leq 1$
 \\- Le schéma Euler explicite en aval :
 \\
 \begin{eqnarray*}
@@ -420,8 +423,8 @@ le flux à travers l'arête $e_{i,j}$ est approché par
 	
 \noindent Numériquement et peu importe la dimension du problème, cette condition est équivalente à la condition de CFL \cite{ref9} (coefficient de Courant, Fredrichs, Lewy).
 Le schéma est stable si ce coefficient est inférieur ou égal à 1 et produira une solution cohérente. 
-La condition de CFL impose au coefficient d'amplification d'être plus petit que $1$.
-\\Par exemple sur les schémas à un pas, un schéma numérique est déterminé par la formule suivante :
+La condition de CFL impose au coefficient d'amplification d'être plus petit que $1$.Une des manières pour exprimer la condition de cfl dans le cas 1D est de passé à la transformé de fourier sur du problème.
+\\Par exemple sur les schémas à un pas de temps, un schéma numérique est déterminé par la formule suivante :
 
 \begin{eqnarray*}
     \sum_{j\in J_k} b_ju_{k+j}^{n+1} = \sum_{j\in J_k} c_ju_{k+j}^{n} 
@@ -430,13 +433,14 @@ La condition de CFL impose au coefficient d'amplification d'être plus petit que
 \begin{eqnarray*}
      M(\xi)=\frac{\sum_j c_j e^{i\xi j \Delta_x}}{\sum_j b_j e^{i \xi j\Delta_x }}
 \end{eqnarray*}
-\\Ainsi lorsque que $|M(\xi)|\leq 1$ cela nous donne la condition de stabilité que l'on appelle CFL.
+\\Ainsi lorsque que $|M(\xi)|\leq 1$ cela nous donne la condition de stabilité que l'on appelle CFL. Si par exemple le schéma possède plusieurs pas de temps alors on peut réécrire le problème en passant toujours à la transformé de Fourier mais cette fois on réecrit le problème sous forme matricielle est les valeurs propres de cette matrice devront toutes vérifiées la condition d'être plus petit en norme que 1.
 \\
 \\
 On peut déterminer par exemple le pas de temps avec la formule suivante :
 $\Delta t = \Delta x \times CFL$
 \\ou on fixe au préalable $CFL < 1$ et un pas d'espace $\Delta x$.
 \\On peut parfois se placer à la condition de stabilité où le coefficient de $CFL$ vaut 1.
+\\Pour l'implémentation de notre méthode nous utiliserons ce critère.
 \\
 \subsubsection{Méthode avec résolution de système linéaire}\noindent En fonction du type de schéma considéré pour l'approximation de l'équation,  c'est-à-dire si un schéma est implicite ou explicite on peut avoir besoin de résoudre un système linéaire. C'est dans le cas où le schéma est implicite c'est-à-dire lorsqu'au $n+1^{ième}$ pas de temps, il existe plusieurs pas d'espace pour ce même pas de temps, qu'il sera alors nécessaire de résoudre un système linéaire.
 Les schémas implicites peuvent parfois être utilisés à la place des schémas explicites pour leur meilleure stabilité. 
@@ -502,8 +506,6 @@ Pour le rendre stable, il faut ajouter de la diffusion numérique. Nous pouvons 
 \begin{center}
    $\displaystyle \partial_t \,u + c\, \partial_x u - \gamma \, \partial_{x^2}^2 \, u = 0$ avec $\displaystyle \gamma \xrightarrow{\delta x \rightarrow 0} 0$ 
 \end{center}
-
-\newpage
 \subsubsection{Système d'équation de transport}
 Le cas d'un système d'équations de transport à coefficients constants correspond à un transport de plusieurs éléments. Par exemple dans un cours d'eau on peut étudier le transport de la terre, de pierres, de différents polluants, etc.
 \\Cela revient à résoudre la même équation que précédemment mais l'inconnu U est un vecteur de plusieurs composantes tel que $u_1$,$u_2$,$u_3$,..
@@ -548,22 +550,22 @@ On a choisi de travailler  avec différents schémas dont on explicitera les ré
 Le problème 1D est conçu de façon à modéliser suivant le schéma demandé une approximation de u solution exacte du problème de transport 1D sur $[0;1]$.
 Les schémas sont disponibles dans un fichier séparé et il est possible d'utiliser les schéma suivant :
 \\
-\\schéma décentré
+\\schéma upwind
 \\schéma centré de Richardson
 \\schéma de Lax Wendroff
-\\schéma d'Euler explicite en aval
 \\schéma de Lax-Friedrichs
 \\
-\\Pour ce faire nous avons décidé de définir le pas de temps en fonction de la condition de cfl et du pas d'espace defini par $\frac{1}{N}$ où $N$ est le nombre de maille que l'on décide de démandé à l'utilisateur, ainsi on peut facilement comparé le résultat obtenu en fonction de discrétisations en espace différentes.
-\\La partie principale du code nous permet d'afficher $2$ figures. La première affiche pour certains pas de temps la comparaison entre la solution exacte et la solution calculée. L'autre figure affiche seulement la comparaison au dernier pas de temps et on peut aussi voir sur le terminale l'erreur maximale de la méthode entre la solution exacte et son approximation tous au long du calcul. Comme test de validation un autre fichier est disponible $"calcule-erreurs -schema"$ qui lui affichera l'erreur entre la solution exacte et l'approximation en échelle logarithmique.
+\\Pour ce faire nous avons décidé de définir le pas de temps en fonction de la condition de cfl et du pas d'espace defini par $\frac{1}{N}$ où $N$ est le nombre de mailles que l'on décide de demandé à l'utilisateur, ainsi on peut facilement comparé le résultat obtenu en fonction de différentes discrétisations en espace.
+\\La partie principale du code nous permet d'afficher $2$ figures. La première affiche pour certains pas de temps la comparaison entre la solution exacte et la solution calculée. L'autre figure affiche seulement la comparaison au dernier pas de temps et on peut aussi voir sur le terminale l'erreur maximale de la méthode à la fin du calcul. Comme test de validation un autre fichier est disponible $"calcule-erreurs -schema"$ qui lui affichera l'erreur entre la solution exacte et l'approximation en échelle logarithmique.
 \subsection{Exemples concrets de solutions exactes}
-On va considéré seulement pour montrer quelques résultats possible une vitesse constante $c=1$ et une discrétisation en espace de $5000$.
+On va considéré seulement pour montrer quelques résultats possible une vitesse constante $c=1$ et une discrétisation en espace de $5000$ points.
+On choisi aussi de poser la condition de cfl à $0.05$ mais une simple modification du code permet d'étudier des résultats avec une condition de cfl différentes.
 \subsubsection{schéma upwind}
 Premiére condition initiale : $cos(2 \pi x)$
  \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{1D_c1_5000_s1.png}
-	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1.png}
+	\includegraphics[scale=0.40]{1D_c1_5000_s1.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s1.png}
 	\caption{Approximation, discretisation de 5000 et visulation au temps max}
 	\label{1D} 
 	\end{figure}
@@ -571,8 +573,8 @@ Erreur max = $0.017672$
 \\Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
  \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{1D_c1_5000_s1_init2.png}
-	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1_i2.png}
+	\includegraphics[scale=0.40]{1D_c1_5000_s1_init2.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s1_i2.png}
 	\caption{Approximation, discretisation de 5000 et visulation au temps max}
 	\label{1D} 
 	\end{figure}
@@ -580,8 +582,8 @@ Erreur max = $0.337537$
 \\Troisième condition initiale : $1.*(x<0.2)$
  \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{1D_c1_5000_s1_init3.png}
-	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1_i3.png}
+	\includegraphics[scale=0.40]{1D_c1_5000_s1_init3.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s1_i3.png}
 	\caption{Approximation, discretisation de 5000 et visulation au temps max}
 	\label{1D} 
 	\end{figure}
@@ -589,55 +591,162 @@ Erreur max = $2.261373$
 \subsubsection{schéma de Richardson}
 
 Premiére condition initiale : $cos(2 \pi x)$
- =
-Erreur max = 
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{1D_c1_5000_s2_init1.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s2_i1.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D} 
+	\end{figure}
+Erreur max = 0.001108
 \\Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
-
-Erreur max =
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{1D_c1_5000_s2_init2.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s2_i2.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D} 
+	\end{figure}
+Erreur max =0.020776
 \\Troisième condition initiale : $1.*(x<0.2)$
-
-Erreur max = 
-
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{1D_c1_5000_s2_init3.png}
+	\includegraphics[scale=0.40]{1D_c1_5000_s2_i3.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D} 
+	\end{figure}
+Erreur max = 63883.495253
+L'erreur maximale enregistrée pour ce schéma est très importante cela est du au fait que c'est un schéma inconditionnellement instable.
 \subsubsection{schema de Lax Wendroff}
 Premiére condition initiale : $cos(2 \pi x)$
 
  \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{1D_c1_5000.png}
-	\includegraphics[scale=0.45]{Temp_max_c1_5000.png}
+	\includegraphics[scale=0.40]{1D_c1_5000.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000.png}
 	\caption{Approximation, discretisation de 5000 et visulation au temps max}
 	\label{1D} 
 	\end{figure}
-Erreur max = $0.020306$
+Erreur max = $0.000936$
 \\Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
 
  \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{1D_c1_5000_init2.png}
-	\includegraphics[scale=0.45]{Temp_max_c1_5000_s1_i2.png}
+	\includegraphics[scale=0.40]{1D_c1_5000_init2.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s1_i2.png}
 	\caption{Approximation, discretisation de 5000 et visulation au temps max}
 	\label{1D}
 	\end{figure}
-Erreur max = $1.430819$
+Erreur max = $0.020306$
 \\Troisième condition initiale : $1.*(x<0.2)$
 
  \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.45]{1D_c1_5000_init3.png}
-	\includegraphics[scale=0.45]{Temp_max_c1_5000_init3.png}
+	\includegraphics[scale=0.40]{1D_c1_5000_init3.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_init3.png}
 	\caption{Approximation, discretisation de 5000 et visulation au temps max}
 	\label{1D}
 	\end{figure}
-Erreur max = $0.000936$
-\subsubsection{schéma d'Euler explicite en aval}
-\subsubsection{schéma LaxFriedrichs}
+Erreur max = $1.430819$
 
+\subsubsection{schéma Lax Friedrichs}
+Premiére condition initiale : $cos(2 \pi x)$
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{1D_c1_5000_s5_i1.png}
+	\includegraphics[scale=0.40]{1D_c1_5000_s5_init1.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D}
+	\end{figure}
+Erreur max = $0.367573$
+Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{1D_c1_5000_s5_i2.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s5_init2.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D}
+	\end{figure}
+Erreur max = $3.411704$
+
+Troisième condition initiale : $1.*(x<0.2)$
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{1D_c1_5000_s5_i3.png}
+	\includegraphics[scale=0.40]{Temp_max_c1_5000_s5_init3.png}
+	\caption{Approximation, discretisation de 5000 et visulation au temps max}
+	\label{1D}
+	\end{figure}
+Erreur max = $4.831524$
+
+Nous avons aussi implémenter un calcul d'approximation avec un affichage en 3 dimensions pour le problème 1D. Ou on représente la solution en fonction de la valeur du pas de temps $\Delta t$, de la valeur du pas d'espace $\Delta x$ et de l'approximation calculée par le schéma. En voici un exemple juste pour montrer la différence d'affiche par rapport à celui en deux dimensions.
+On choisi ici le schéma upwind avec un vecteur vitesse constant c égale à 1 et une condition de cfl de 0.5.  
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{1d_form3d_init2_s1_cfl0-5_exact.png}
+	\includegraphics[scale=0.5]{1d_form3d_init2_s1_cfl0-5_appro.png}
+	\caption{Solution exacte et Approximation pour une discretisation de 50 en x}
+	\label{1D}
+	\end{figure}
+Le problème de cette affichage et qu'il rend compliqué la comparaison entre la solution exacte et la solution calculée.
+\\En ce qui concerne les exemples montré précédemment on peut clairement voir sans l'étude préalable de l'erreur (section suivante) que le choix du schéma influence beaucoup sur le résultat de l'approximation. Dans notre cas on remarque que le schéma upwind et le schéma de Lax Wendroff donne de très bon résultat pour notre problème.
 \subsection{Tests de validation}
 \subsubsection{Explication}
-\subsection{Tests de validation}
-
 Comme test de validation de notre méthode calcul nous avons essayé de testé le code produit pour différentes conditions initiales(voir paragraphe précédent), de plus pour savoir si l'approximation produite est bonne nous avons créer une méthode de calcul d'erreur qui représente en échelle logarithmique l'erreur entre la solution calculée et la solution exacte que nous connaissons pour toute condition initiale d'après ce que nous avons dit précédemment sur la méthode des droites caractéristiques(voir première partie).
 
+Premiére condition initiale : $cos(2 \pi x)$
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{erreur_schema1_init1.png}
+	\includegraphics[scale=0.40]{erreur_schema2_init1.png}
+	\caption{upwind et Richardson}
+	\label{1D}
+	\end{figure}	
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{erreur_schema3_init1.png}
+	\includegraphics[scale=0.40]{erreur_schema5_init1.png}
+	\caption{Lax Wendroff et Lax Friedrichs}
+	\label{1D}
+	\end{figure}
+Dans le cas de la première condition initiale choisi le schéma de Lax Wendroff est à celui ayant la plus petite erreur. 
+\\Deuxième condition initiale : $-\frac{2}{\pi}arctan(100(x-0.5))$
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{erreur_schema1_init2.png}
+	\includegraphics[scale=0.40]{erreur_schema2_init2.png}
+	\caption{upwind et Richardson}
+	\label{1D}
+	\end{figure}	
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{erreur_schema3_init2.png}
+	\includegraphics[scale=0.40]{erreur_schema5_init2.png}
+	\caption{Lax Wendroff et Lax Friedrichs}
+	\label{1D}
+	\end{figure}
+Dans le cas de la deuxième condition initiale là encore le schéma de Lax Wendroff est celui montrant les meilleurs résultats.
+\\Troisième condition initiale : $1.*(x<0.2)$
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{erreur_schema1_init3.png}
+	\includegraphics[scale=0.40]{erreur_schema2_init3.png}
+	\caption{upwind et Richardson}
+	\label{1D}
+	\end{figure}	
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.40]{erreur_schema3_init3.png}
+	\includegraphics[scale=0.40]{erreur_schema5_init3.png}
+	\caption{Lax Wendroff et Lax Friedrichs}
+	\label{1D}
+	\end{figure}
+Dans le cas de la dernière condition initiale choisi peut importe le schéma considéré l'approximation est mauvaise cela est du au fait que la condition initiale choisi n'est pas une fonction continue mais une indicatrice sur le domaine $]-\infty;0.2[$. 
+\\A l'aide des résultat obtenu on peut donc dire que certains schémas sont meilleurs que d'autres cela est du à leur propriété comme leur stabilité et leur ordre de convergence mais en fonction de la condition initiale imposé au problème 1D de transport le choix du schéma doit se poser en fonction de cette donnée. 
 \section{Le cas général}
 \subsection{Généralisation à la dimension 2}
 \noindent On cherche à généraliser le cas 1D de l'équation de transport à son problème 2D toujours dans le cas linéaire.
@@ -674,7 +783,6 @@ On peut par exemple considérer $x$ et $y$ dans un domaine $(0,1)$.
 On note $P_{i,j}$=$(i \Delta x,j \Delta y)$ où $i$,$j$ $\in\mathbb{Z}$, les noeuds du maillage de $\mathbb{R}^2$  $u_{i,j}$=$u(i \Delta x,j \Delta y)$ est une approximation de la solution exacte aux noeuds $P_{i,j}$ à l'instant $n\Delta t$.
 \\On pourra choisir un maillage non uniforme i.e un maillage où le pas d'espace en la variable $x$ n'est pas le même que le pas d'espace en la variable $y$.
 Ainsi la principale différence entre le problème 1D et le problème 2D et l'ajout de nouvelles variables qui imposent à l'inconnu u que l'on cherche à identifier d'être représenté sous forme d'une matrice ou x agit sur les lignes et y sur les colonnes.
-\newpage
 \subsection{Application à un exemple}
 Soit le problème suivant
 \begin{eqnarray*}
@@ -703,7 +811,7 @@ Connaissant la solution exacte on pourra par la suite calculer l'erreur entre la
 à rédiger...
 \subsubsection{Résolution du systéme d'équation de Saint Venant}
 à rédiger...
-
+\newpage
 \section{Bibliographie}
 Livres BU : Résolution numérique des équations de Saint-Venant par la technique de projection en utilisant une méthode des volumes finis dans un maillage non structuré 
 

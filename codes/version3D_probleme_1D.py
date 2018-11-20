@@ -7,9 +7,8 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 import initiale
-#initiale fichier ou on va chercher la condition initiale
-
-#resolution 1D de l'equation de transport
+close("all")
+#resolution 1D de l'equation de transport pour un type de schema en particulier
 ##Affichage du resultat en 3d
 #schema decentré en amont pour c positif et schema decentre en aval pour c négatif
 
@@ -22,7 +21,7 @@ N=int(N)
 
 #h le pas d'espace
 h=1./N
-x=arange(0,1+h,h) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
+x=linspace(0,1,N+1) #x varie de 0 à 1 en augmentant d'un pas de h à chaque fois
 
 #on doit choisir le pas de temps de maniere a ce que la condition de cfl soit au plus egale à 1
 cfl=input("Choix de la condition de cfl : ")
@@ -53,7 +52,7 @@ while t[i]<Tmax :
     if c>0:
         #on doit apporter une condition sur u(O,t) pour tous temps t
         u[0,:]=initiale.i2(0)
-        #calcul de l'approximation à l'aide du schéma choisi
+        #calcul de l'approximation à l'aide du schéma choisi u(x,t)
         for j in arange(1,len(x)):
             u[j,i+1]=u[j,i]-c*(dt/h)*(u[j,i]-u[j-1,i])
         i=i+1
@@ -64,7 +63,7 @@ while t[i]<Tmax :
         
     if c<0:
         #on doit apporter une condition sur u(O,t) pour tous temps t
-        u[-1,:]=initiale.i2(x[-1]-c*t[i])
+        u[-1,:]=0
         #calcul de l'approximation à l'aide du schéma choisi
         for j in arange(0,len(x)-1):
             u[j,i+1]=u[j,i]-c*(dt/h)*(u[j+1,i]-u[j,i])

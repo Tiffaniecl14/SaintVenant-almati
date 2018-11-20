@@ -16,7 +16,7 @@ N=int(N)
 #Choix de la condition initiale
 f=initiale.i1
 #Choix du schema 
-s=schema.s2
+s=schema.s3
 
 #h le pas d'espace
 h=1./N

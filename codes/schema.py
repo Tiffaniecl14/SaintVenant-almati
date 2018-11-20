@@ -27,11 +27,11 @@ def s3(c,f,x,t,u,uN,dt,h):
     return uN
     
 #schema d'Euler explicite en aval
-def s4(c,f,x,t,u,uN,dt,h): 
-    uN[:-1]=u[:-1]-c*(dt/h)*(u[1:]-u[:-1])
-    uN[-1]=f(x[-1]-c*t)
-    return uN
-    
+#def s4(c,f,x,t,u,uN,dt,h): 
+ #   uN[:-1]=u[:-1]-c*(dt/h)*(u[1:]-u[:-1])
+  #  uN[-1]=f(x[-1]-c*t)
+  #  return uN
+   #erreur pour le schema d'euler a corriger 
 #schema de Lax-Friedrichs
 def s5(c,f,x,t,u,uN,dt,h): 
     uN[0]=f(x[0]-c*t) 

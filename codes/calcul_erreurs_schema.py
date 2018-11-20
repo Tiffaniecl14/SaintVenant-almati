@@ -11,9 +11,9 @@ close('all')
 cfl=input("Choix de la condition de cfl entre o et 1 pour la convergeance du schema : ")
 cfl=float(cfl)
 #Choix de la condition initiale
-f=initiale.i1
+f=initiale.i3
 #Choix du schema 
-s=schema.s3
+s=schema.s5
 
 def calcul_erreur(N,c=1,plot=False):
     
